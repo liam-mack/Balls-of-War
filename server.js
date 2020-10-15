@@ -12,6 +12,10 @@ const io = require("socket.io")(http);
 
 const PORT = process.env.PORT || 8080;
 
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/index.html`);
+});
+
 io.on("connection", (socket) => {
   socket.on("chat message", (msg) => {
     console.log(`message: ${msg}`);

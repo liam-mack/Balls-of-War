@@ -24,6 +24,7 @@
         "quotes": ["error","double"],
         "no-restricted-globals": ["off", "isNan"],
         "no-console": "off",
-        "no-unused-expressions": ["error", {"allowTernary": true}]
+        "no-unused-expressions": ["error", {"allowTernary": true}],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

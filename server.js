@@ -1,5 +1,7 @@
+// Requiring necessary npm packages
 const express = require("express");
 const logger = require("morgan");
+const db = require("./models");
 
 const app = express();
 app.use(logger("dev"));
@@ -7,27 +9,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
-
 const PORT = process.env.PORT || 8080;
 
-app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
-});
+// Requiring our routes
+require("./routes/html-routes.js")(app);
 
-io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    console.log(`message: ${msg}`);
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+    );
   });
 });
 
-// Socket io server start
-http.listen(PORT, () => {
-  console.log(`listening on port ${PORT}!`);
-});
-
-// Express server start
-// app.listen(PORT, () => {
-//   console.log(`App running on port ${PORT}!`);
-// });
+// { force: true }

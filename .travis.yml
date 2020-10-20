@@ -5,13 +5,8 @@ branches:
     - main
 cache:
   directories:
-    - $HOME/.npm
-script: 
-  - npm run build
-  - npm test
-ignore: 
-  - node_modules
-# services:
-#   - mysql
-# before_install:
-#   - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
+    - node_modules
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'

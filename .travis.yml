@@ -6,6 +6,9 @@ branches:
 cache:
   directories:
     - $HOME/.npm
+script: 
+  - npm run build
+  - npm test
 # services:
 #   - mysql
 # before_install:

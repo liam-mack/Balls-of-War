@@ -9,6 +9,8 @@ cache:
 script: 
   - npm run build
   - npm test
+ignore: 
+  - node/modules
 # services:
 #   - mysql
 # before_install:

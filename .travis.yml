@@ -10,7 +10,7 @@ script:
   - npm run build
   - npm test
 ignore: 
-  - node/modules
+  - node_modules
 # services:
 #   - mysql
 # before_install:

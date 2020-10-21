@@ -10,21 +10,13 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "test": "npm run lint",
-    "lint": "eslint --quiet"
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.0.0"
+    "nodemon": "^2.0.6"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -32,6 +24,7 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.1"
   }
 }

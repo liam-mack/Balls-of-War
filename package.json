@@ -1,7 +1,7 @@
 {
   "name": "War",
   "version": "1.0.0",
-  "description": "War",
+  "description": "War Game",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

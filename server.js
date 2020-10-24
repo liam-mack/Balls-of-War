@@ -1,8 +1,10 @@
 const express = require("express");
 // const path = require("path");
 const compression = require("compression");
+
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
+
 const app = express();
 
 // Define middleware here
@@ -29,7 +31,7 @@ require("./routes/html-routes.js")(app);
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT,
     );
   });
 });

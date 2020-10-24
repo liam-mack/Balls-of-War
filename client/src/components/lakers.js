@@ -1,11 +1,11 @@
-import React from "react";
-import API from "../utils/API";
+import React from "react"
+import API from "../utils/API"
 
-function Btn() {
+function Btn () {
   const handleOnClick = function () {
-    console.log("test");
-    API.getPlayers().then((res) => console.log(res));
-  };
+    console.log("test")
+    API.getPlayers().then((res) => console.log(res))
+  }
 
   return (
     <button
@@ -14,7 +14,7 @@ function Btn() {
     >
       Test
     </button>
-  );
+  )
 }
 
-export default Btn;
+export default Btn

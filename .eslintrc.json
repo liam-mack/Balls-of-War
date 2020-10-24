@@ -1,20 +1,19 @@
 {
     "env": {
         "browser": true,
-        "es2020": true,
+        "es2021": true,
         "node": true,
-        "commonjs": true 
+        "commonjs": true
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
-        "airbnb/hooks"
+        "standard"
     ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 11,
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "plugins": [
@@ -30,8 +29,8 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
     "settings": {
-			"react": {
-				"version": "17"
-			}
-		}
+        "react": {
+            "version": "17"
+        }
+    }
 }

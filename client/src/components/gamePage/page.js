@@ -59,6 +59,10 @@ class gamePage extends Component{
         }
     }
 
+    clickables(){
+
+    }
+    
     render(){
         return (
           <div>

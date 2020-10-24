@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true,
+        "commonjs": true 
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb/hooks"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 2],
+        "quotes": ["error","double"],
+        "no-restricted-globals": ["off", "isNan"],
+        "no-console": "off",
+        "no-unused-expressions": ["error", {"allowTernary": true}],
+        "func-names": ["error", "never"],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "settings": {
+			"react": {
+				"version": "17"
+			}
+		}
+}

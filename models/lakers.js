@@ -1,9 +1,15 @@
-const Sequelize = require("sequelize");
-
+// const Sequelize = require("sequelize");
+const { Sequelize, DataTypes, Model } = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
   const Lakers = sequelize.define(
     "Lakers",
     {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: Sequelize.UUID4,
+        allowNull: false,
+        primaryKey: true,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,

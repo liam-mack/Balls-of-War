@@ -25,6 +25,7 @@
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
     "uuid": "^8.3.1"
   }
 }

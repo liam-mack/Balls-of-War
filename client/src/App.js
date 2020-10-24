@@ -2,7 +2,6 @@ import React from "react";
 import './App.css';
 import Btn from "./components/lakers";
 import GamePage from "./components/gamePage/page";
-
 function App() {
   return (
     <>
@@ -10,7 +9,7 @@ function App() {
      <Btn /> */}
      <GamePage/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -8,10 +8,21 @@ function Btn() {
     API.getPlayers().then(res => console.log(res))
   }
 
+  const postTable = function() {
+    console.log("posting");
+    API.postPlayers().then(res => console.log(res));
+  }
   return (
+    <>
     <button
       onClick={handleOnClick}
-    >Test</button>
+      >Get Laker Info
+    </button>
+    <button
+      onClick={postTable}
+      >Add to laker table
+    </button>
+    </>
   )
 }
 

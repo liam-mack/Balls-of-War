@@ -47,19 +47,36 @@ module.exports = function (sequelize, DataTypes) {
       },
       fieldgoal: {
         type: DataTypes.FLOAT(5, 2),
+        get() { 
+          const rawValue = this.getDataValue("fieldgoal");
+          return rawValue ? rawValue.toPrecision(2)*100 : null;
+        }
       },
       rebounds: {
         type: DataTypes.FLOAT(5, 2),
+        get() { 
+          const rawValue = this.getDataValue("rebounds");
+          return rawValue ? Math.ceil(rawValue)*10 : null;
+        }
       },
       assists: {
         type: DataTypes.FLOAT(5, 2),
+        get() { 
+          const rawValue = this.getDataValue("assists");
+          return rawValue ? Math.ceil(rawValue)*10 : null;
+        }
       },
       personalfouls: {
         type: DataTypes.FLOAT(5, 2),
+        get() { 
+          const rawValue = this.getDataValue("personalfouls");
+          return rawValue ? Math.ceil(rawValue)*10 : null;
+        }
       },
       image: {
         type: DataTypes.STRING,
         allowNull: true,
+        defaultValue: null,
       },
     },
     { timestamps: false },

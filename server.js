@@ -26,23 +26,7 @@ require("./routes/html-routes.js")(app);
 // });
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({ force: true }).then(async () => {
-
-  await db.Lakers.create({
-    // id: uuidv4(),
-    name: "Shamik",
-    position: "SG",
-    jersey: 2,
-    height: "6'4",
-    weight: 280,
-    points: 32,
-    fieldgoal: 0.45,
-    rebounds: 11,
-    assists: 12,
-    personalfouls: 0.2,
-    image: null
-  })
-
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT
@@ -50,4 +34,4 @@ db.sequelize.sync({ force: true }).then(async () => {
   });
 });
 
-// 
+// { force: true }

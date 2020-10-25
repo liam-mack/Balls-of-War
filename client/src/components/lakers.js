@@ -5,7 +5,7 @@ function Btn() {
   
   const handleOnClick = function() {
     console.log("test");
-    API.getPlayers().then(res => console.log(res))
+    API.getPlayers().then(res => console.log(res.data))
   }
 
   const postTable = function() {

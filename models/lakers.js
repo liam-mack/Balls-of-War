@@ -1,13 +1,10 @@
-// const Sequelize = require("sequelize");
-const { Sequelize, DataTypes, Model } = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
   const Lakers = sequelize.define(
     "Lakers",
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue: Sequelize.UUID4,
-        allowNull: false,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
       },
       name: {

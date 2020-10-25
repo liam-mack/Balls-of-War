@@ -1,8 +1,6 @@
 const db = require("../models");
-const { v4: uuidv4 } = require('uuid');
 
 module.exports = function(app) {
-
 app.get("/api/lakers", async (req, res) => {
     const deck = await db.Lakers.findAll({});
     console.log(deck);

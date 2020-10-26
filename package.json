@@ -1,7 +1,7 @@
 {
   "name": "War",
   "version": "1.0.0",
-  "description": "War",
+  "description": "War Game",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -26,6 +26,6 @@
     "if-env": "^1.0.4",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
-    "uuid": "^8.3.1"
+    "sequelize-cli": "^6.2.0"
   }
 }

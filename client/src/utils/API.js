@@ -5,4 +5,7 @@ export default {
   getPlayers: function() {
     return axios.get("/api/lakers");
   },
+  postPlayers: function() {
+    return axios.post("/api/lakers");
+  }
 };

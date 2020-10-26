@@ -1,8 +1,8 @@
 const express = require("express");
-// const path = require("path");
 const compression = require("compression");
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
+const SeedBomb = require("./sql/seedBomb");
 const app = express();
 
 // Define middleware here
@@ -19,14 +19,9 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
-
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
+
   app.listen(PORT, () => {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT
@@ -35,3 +30,5 @@ db.sequelize.sync().then(() => {
 });
 
 // { force: true }
+//     return SeedBomb();
+// }).then(() => {

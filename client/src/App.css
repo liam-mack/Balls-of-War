@@ -32,13 +32,17 @@
   
   /*Game page styling*/
   body{
-    background-color: tan !important;
-    background-repeat: no-repeat;
+    background-image:url(./images/bCourt.png) !important;
+    /* background-repeat: no-repeat; */
+    background-size: 100% 750px;
+    /* background-position: center center;
+    min-height: 100%; */
   }
   .playCards1, .playCards2{
     width: 150px !important;
     height: 250px !important;
-    background-image: url('https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=jpg&quality=90&v=1530129081');
+    background-image: url(./images/logoNBA.png);
+    background-size: cover;
     background-position: center;
     border: 1px solid;
     position: absolute;
@@ -61,12 +65,14 @@
   .playerCard1, .playerCard2{
     position: absolute !important;
     left:45%;
+    height: 500px;
   }
   .playerCard1{
     top: 50%;
+    margin-top: 10px;
   }
   
   .playerCard2{
     bottom: 50%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }

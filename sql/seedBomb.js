@@ -3,10 +3,12 @@ const Rockets = require("./seeds/seedRockets");
 const Heat = require("./seeds/seedHeat");
 const Raptors = require("./seeds/seedRaptors");
 
-module.exports = function() {
+const seedBomb = function () {
   return Promise.all([
-    Lakers(), Rockets(), Heat(), Raptors()
+    Lakers(), Rockets(), Heat(), Raptors(),
   ]).then(() => {
-    console.log("Seeded successfully")
-  })
-}
+    console.log("Seeded successfully");
+  });
+};
+
+module.exports = seedBomb;

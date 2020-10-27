@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  const Lakers = sequelize.define(
-    "Lakers",
+  const Heat = sequelize.define(
+    "Heat",
     {
       id: {
         type: DataTypes.UUID,
@@ -88,5 +88,5 @@ module.exports = function (sequelize, DataTypes) {
     },
     { timestamps: false },
   );
-  return Lakers;
+  return Heat;
 };

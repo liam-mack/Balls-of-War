@@ -1,8 +1,9 @@
 const express = require("express");
 const compression = require("compression");
-const PORT = process.env.PORT || 3001;
 const db = require("./models");
-const SeedBomb = require("./sql/seedBomb");
+// const SeedBomb = require("./sql/seedBomb");
+
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
@@ -23,13 +24,12 @@ require("./routes/html-routes.js")(app);
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT,
     );
   });
 }).catch((error) => {
-  if(error) throw error;
-}
-);
+  if (error) throw error;
+});
 
 // { force: true }
 // return SeedBomb();

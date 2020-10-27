@@ -1,0 +1,7 @@
+node_modules
+sql/seeds
+models/index.js
+config/config.js
+gamePage/page.js
+loginPage/login.js
+.env

@@ -1,44 +1,46 @@
-import React, { Component } from 'react';
-import Input from './inputField';
-class Login extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            username: '',
-            password: ''
-        }
-    }
+/* eslint-disable react/destructuring-assignment */
+import React, { Component } from "react";
+import Input from "./inputField";
 
-    propertyIn(property,val){
-        this.setState({[property]:val})
-    }
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+    };
+  }
 
-    render(){
-        return (
-          <div className="loginForm">
-              <h2 className="login">
-                L<span>O</span>GIN
-              </h2>
-              <form className="form-group mt-5 mb-5">
-                    <Input
-                        type='text' 
-                        placeholder='Username' 
-                        value={this.state.username}
-                        onChange={(val)=>this.propertyIn('username',val)}
-                    />
+  propertyIn(property, val) {
+    this.setState({ [property]: val });
+  }
 
-                    <Input 
-                        type='password' 
-                        placeholder='Password' 
-                        value={this.state.password}
-                        onChange={(val)=>this.propertyIn('password',val)}
-                    />
-                </form>
-          </div>
-        );
-        
-          
-    }
+  render() {
+    return (
+      <div className="loginForm">
+        <h2 className="login">
+          L
+          <span>O</span>
+          GIN
+        </h2>
+        <form className="form-group mt-5 mb-5">
+          <Input
+            type="text"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={(val) => this.propertyIn("username", val)}
+          />
+
+          <Input
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={(val) => this.propertyIn("password", val)}
+          />
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Login;

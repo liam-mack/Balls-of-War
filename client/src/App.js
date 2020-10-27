@@ -6,9 +6,9 @@ import Login from "./components/loginPage/login"
 function App() {
   return (
     <>
-     {/* <h1>Works Testing</h1>
-     <Btn /> */}
-     <GamePage/>
+     <h1>Works Testing</h1>
+     <Btn />
+     {/* <GamePage/> */}
     </>
   );
 }

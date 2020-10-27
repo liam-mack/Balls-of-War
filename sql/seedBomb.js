@@ -1,8 +1,9 @@
-const Lakers = require("./seeds/seedLakers")
+const Lakers = require("./seeds/seedLakers");
+const Rockets = require("./seeds/seedRockets");
 
 module.exports = function() {
   return Promise.all([
-    Lakers()
+    Lakers(), Rockets()
   ]).then(() => {
     console.log("Seeded successfully")
   })

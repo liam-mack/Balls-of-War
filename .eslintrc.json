@@ -26,7 +26,8 @@
         "no-console": "off",
         "no-unused-expressions": ["error", {"allowTernary": true}],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "func-names": ["error", "never"]
+        "func-names": ["error", "never"],
+        "react/jsx-one-expression-per-line": ["off"]
     },
     "settings": {
         "react": {

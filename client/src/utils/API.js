@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Get Players
-  getPlayers() {
-    return axios.get("/api/lakers");
+  getPlayers(team) {
+    return axios.get(`/api/${team}`);
   },
   postPlayers() {
     return axios.post("/api/lakers");

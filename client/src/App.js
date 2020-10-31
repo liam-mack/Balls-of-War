@@ -1,6 +1,7 @@
 import React from "react";
 // import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import Play from "./pages/Play";
 import Selection from "./pages/Selection";
 // import GamePage from "./components/gamePage/page";
 // import Login from "./components/loginPage/login";
@@ -11,7 +12,7 @@ function App() {
       <Route exact path={["/", "/decks"]}>
         <Selection />
       </Route>
-      <Route path="/play/:session" />
+      <Route path="/play" component={Play} />
     </Switch>
   );
 }

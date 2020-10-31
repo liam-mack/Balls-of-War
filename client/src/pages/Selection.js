@@ -25,7 +25,7 @@ function Selection() {
         <input type="radio" value="raptors" name="player2" onChange={onChange} /> Raptors
         <input type="radio" value="rockets" name="player2" onChange={onChange} /> Rockets
       </div>
-      <Link to="/play">Play</Link>
+      <Link to={{ pathname: "/play/", state: { player1, player2 } }}>Play</Link>
     </>
   );
 }

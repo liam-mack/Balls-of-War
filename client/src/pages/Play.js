@@ -20,7 +20,6 @@ function Play(props) {
 
   useEffect(() => {
     console.log("loaded")
-    // setGame({player2:deck= "test"});
   },[game.player1, game.player2])
 
   return (

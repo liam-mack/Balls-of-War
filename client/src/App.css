@@ -76,3 +76,40 @@
     bottom: 50%;
     margin-bottom: 10px;
   }
+
+  /* Game Deck */
+  .deckSelect{
+    border-radius: 5%;
+    height: 500px;
+    width: 600px;
+    position: absolute;
+    top: 17%;
+    left: 30.4%;
+    background: whitesmoke;
+    opacity: 0.6;
+  }
+
+   .miami, .rockets, .raptors{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+  }
+
+  .miami{
+    left: 5%;
+  }
+  .lakers{
+    position: absolute;
+    left: 60%;
+    top: 5%;
+    height: 150px;
+    width: 210px;
+  }
+  .rockets{
+    top: 55%;
+    left: 60%;
+  }
+  .raptors{
+    top: 55%;
+    left: 5%;
+  }

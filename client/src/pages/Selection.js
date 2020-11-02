@@ -1,5 +1,7 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 
 function Selection() {
   const [player1, setPlayer1] = useState(null);
@@ -8,25 +10,39 @@ function Selection() {
     event.target.name === "player1" ? setPlayer1(event.target.value) : setPlayer2(event.target.value);
   };
 
+  const [teams, setTeams] = useState(["lakers", "heat", "raptors", "rockets"]);
   return (
-    <>
-      <h1>Decks Page</h1>
-      <h3> Player 1: {player1}</h3>
-      <div>
-        <input type="radio" value="lakers" name="player1" onChange={onChange} /> Lakers
-        <input type="radio" value="heat" name="player1" onChange={onChange} /> Heat
-        <input type="radio" value="raptors" name="player1" onChange={onChange} /> Raptors
-        <input type="radio" value="rockets" name="player1" onChange={onChange} /> Rockets
+    <div className="tempCheck">
+      <h1 id='intro'>Choose Your Teams</h1>
+      <div className="playSelect1">
+      <h2 id='playerone'> Player 1 Select: <span id='teamName'>{player1}</span></h2>
+          {teams.map(team=>{
+              return (
+                <>
+                    <input id={team} type="radio" value={team} name="player1" onChange={onChange}/> 
+                    {/* {team} */}
+                    <label className={`playerDecks ${team}`} for={team}></label>
+                </>
+              )
+              ;
+          })}
       </div>
-      <h3>Player 2: {player2}</h3>
-      <div>
-        <input type="radio" value="lakers" name="player2" onChange={onChange} /> Lakers
-        <input type="radio" value="heat" name="player2" onChange={onChange} /> Heat
-        <input type="radio" value="raptors" name="player2" onChange={onChange} /> Raptors
-        <input type="radio" value="rockets" name="player2" onChange={onChange} /> Rockets
-      </div>
-      <Link to={{ pathname: "/play/", state: { player1, player2 } }}>Play</Link>
-    </>
+      <h1 id='versus'>VS</h1>
+      <div className="playSelect2">
+      <h2 id='playertwo'>Player 2 Select: <span id='teamName'>{player2}</span></h2>
+      {teams.map(team=>{
+              return (
+                <>
+                    <input id={`player2 ${team}`} type="radio" value={team} name="player2" onChange={onChange}/> 
+                    {/* {team} */}
+                    <label className={`playerDecks ${team}`} for={`player2 ${team}`}></label>
+                </>
+              )
+              ;
+          })}      
+        </div>
+      <button id='playButton'><Link to={{ pathname: "/play/", state: { player1, player2 } }}><span>Start</span></Link></button>
+    </div>
   );
 }
 

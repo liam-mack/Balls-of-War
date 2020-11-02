@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Lakers = require("./seeds/seedLakers");
 const Rockets = require("./seeds/seedRockets");
 const Heat = require("./seeds/seedHeat");

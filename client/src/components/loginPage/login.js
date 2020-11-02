@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+/* eslint-disable */
 import React, { Component } from "react";
 import Input from "./inputField";
 

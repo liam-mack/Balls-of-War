@@ -1,5 +1,7 @@
 const express = require("express");
+const session = require("express-session");
 const compression = require("compression");
+const passport = require("./config/passport");
 const db = require("./models");
 // const SeedBomb = require("./sql/seedBomb");
 
@@ -15,6 +17,14 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true }),
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Define API routes here
 require("./routes/api-routes.js")(app);

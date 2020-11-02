@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react";
-// import "./App.css";
+import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Play from "./pages/Play";
 import Selection from "./pages/Selection";

@@ -38,44 +38,5 @@
     /* background-position: center center;
     min-height: 100%; */
   }
-  .playCards1, .playCards2{
-    width: 150px !important;
-    height: 250px !important;
-    background-image: url(./images/logoNBA.png);
-    background-size: cover;
-    background-position: center;
-    border: 1px solid;
-    position: absolute;
-  }
-  .playCards1{
-    top: 65%;
-    left: 2%;
-  }
   
-  .playCards2{
-    top: 0.5%;
-    right: 2%;
-  }
-  
-  .card-img-top{
-    height: 200px;
-    width: 100px;
-  }
-  
-  .playerCard1, .playerCard2{
-    position: absolute !important;
-    left:45%;
-    height: 500px;
-  }
-  .playerCard1{
-    top: 50%;
-    margin-top: 10px;
-  }
-  
-  .playerCard2{
-    bottom: 50%;
-    margin-bottom: 10px;
-  }
-
-  /* Game Deck */
  

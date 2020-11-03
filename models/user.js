@@ -1,4 +1,4 @@
-/* eslint-disable no-param-reassign */
+/* eslint-disable */
 // Requiring bcrypt for password hashing
 const bcrypt = require("bcryptjs");
 // Creating our User model

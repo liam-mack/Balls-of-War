@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { Component, useEffect, useState } from "react";
+import './placeholder.css';
 import heat from '../../images/Heat.png'
 import lakers from '../../images/Lakers.png'
 import rockets from '../../images/Rockets.png'

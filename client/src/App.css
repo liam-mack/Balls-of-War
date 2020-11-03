@@ -38,21 +38,22 @@
     /* background-position: center center;
     min-height: 100%; */
   }
-  .playCards1, .playCards2{
+  .playCard1, .playCard2{
     width: 150px !important;
     height: 250px !important;
-    background-image: url(./images/logoNBA.png);
-    background-size: cover;
+    /* background-image: url(./images/logoNBA.png); */
+    background-color: black;
+    background-size: contain;
     background-position: center;
     border: 1px solid;
     position: absolute;
   }
-  .playCards1{
+  .playCard1{
     top: 65%;
     left: 2%;
   }
   
-  .playCards2{
+  .playCard2{
     top: 0.5%;
     right: 2%;
   }

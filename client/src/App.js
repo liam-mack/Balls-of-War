@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Play from "./pages/Play";
-import Selection from "./pages/Selection";
+import Selection from "./pages/Selection/Selection";
 // import Home from "./pages/Home";
 // import GamePage from "./components/gamePage/page";
 // import Login from "./components/loginPage/login";

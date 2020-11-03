@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Placeholder from "../components/gamePage/placeholder";
-import PlayerCard from "../components/gamePage/playerCard"
+import Graveyard from "../components/gamePage/grave"
 import GameHand from "../components/GameHand";
 
 function Play(props) {
@@ -56,9 +56,6 @@ function Play(props) {
     console.log(game.player1.team, game.player2.team)
   },[game.player1, game.player2])
 
-  function clickHandler(){
-
-  }
 
   return (
   <>
@@ -68,13 +65,13 @@ function Play(props) {
   <Placeholder
           player={game.player1.team}
           className="playCard1"
-          // handleClick={this.clickHandler}
   />
   <Placeholder
           player={game.player2.team}
           className="playCard2"
-          // handleClick={this.clickHandler}
   />
+  <Graveyard className='player1'/>
+  <Graveyard className='player2'/>
   </div>
     </>
   );

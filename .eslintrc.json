@@ -27,7 +27,9 @@
         "no-unused-expressions": ["error", {"allowTernary": true}],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "func-names": ["error", "never"],
-        "react/jsx-one-expression-per-line": ["off"]
+        "react/jsx-one-expression-per-line": ["off"],
+        "react/jsx-props-no-spreading": [0],
+        "react/prop-types": 0
     },
     "settings": {
         "react": {

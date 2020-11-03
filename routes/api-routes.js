@@ -1,5 +1,5 @@
-const db = require("../models");
 const { Op, Sequelize } = require("sequelize");
+const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -33,9 +33,18 @@ module.exports = function (app) {
   });
 
   app.get("/api/:team", async (req, res) => {
-    const deck = await db.req.params.team.findAll({});
-    console.log(deck);
-    res.json(deck);
+    const deck = await db[req.params.team].findAll({});
+    // console.log(deck[0].dataValues);
+    const modifiedDeck = deck.map((element) => element.dataValues);
+
+    // Fisher yates shuffle
+    for (let i = modifiedDeck.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * i);
+      const temp = modifiedDeck[i];
+      modifiedDeck[i] = modifiedDeck[j];
+      modifiedDeck[j] = temp;
+    }
+    res.json(modifiedDeck);
   });
 
   app.post("/api/lakers", async (req, res) => {

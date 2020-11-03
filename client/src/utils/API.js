@@ -3,8 +3,8 @@ import axios from "axios";
 
 export default {
   // Get Players
-  getPlayers(team) {
-    return axios.get(`/api/${team}`);
+  async getPlayers(team) {
+    return await axios.get(`/api/${team}`);
   },
   postPlayers() {
     return axios.post("/api/lakers");

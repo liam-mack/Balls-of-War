@@ -33,6 +33,7 @@ function Play() {
           <Deck onClick={deckClick} id="player2" className={`playCard2 ${game.player2.team}`} />
 
           < Card onClick={statClick}{ ...game.hand }/>
+          {/* Random Change */}
         </>
       )  
         : null}

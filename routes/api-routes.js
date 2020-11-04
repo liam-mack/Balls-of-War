@@ -95,29 +95,59 @@ module.exports = function (app) {
     });
   });
 
-  async function deckClick(state) {
-    console.log(state);
-    if (state.turn) {
-      await Game.findByIdAndUpdate((state._id), { hand: state.player1.deck[0] });
-      await Game.findByIdAndUpdate((state._id), { turn: false });
-    } else {
-      await Game.findByIdAndUpdate(state._id, { hand: state.player2.deck[0] });
-      await Game.findByIdAndUpdate((state._id), { turn: true });
-    }
+  async function getGame(id) {
+    return Game.findById(id);
   }
 
-  async function statClick(statOne, statTwo) {
-    return (statOne - statTwo);
+  // const updated = await Game.findByIdAndUpdate((state._id), { turn: false });
+
+  async function deckClick(id) {
+    const state = await getGame(id);
+    if (state.turn) {
+      console.log("player1 hand set");
+      await Game.findByIdAndUpdate((state._id), { hand: state.player1.deck[0] });
+      // await Game.findByIdAndUpdate((state._id), { turn: false });
+      return;
+    }
+    await Game.findByIdAndUpdate(state._id, { hand: state.player2.deck[0] });
+    // await Game.findByIdAndUpdate((state._id), { turn: true });
+    console.log("player2 hand set");
+  }
+
+  async function statClick(id, stat) {
+    const state = await getGame(id);
+    const statOne = state.player1.deck[0][stat];
+    const statTwo = state.player2.deck[0][stat];
+    let result = statOne - statTwo;
+    // state.turn - flip result if state.turn is false
+
+    return result;
   }
 
   app.put("/api/game/:id/:method", async (req, res) => {
-    const state = await Game.findById(req.params.id);
-    if (req.params.method === "deckClick") {
-      await deckClick(state);
-    } else if (req.params.method === "statClick" && req.body) {
-      console.log(req.body);
-      await statClick(state.player1.deck[0][req.body.stat], state.player2.deck[0][req.body.stat]);
+    const { id, method } = req.params;
+
+    switch (method) {
+    case "deckClick":
+      await deckClick(id);
+      break;
+    case "statClick":
+      await statClick(id, req.body.id);
+      break;
+    default:
+      break;
     }
-    res.json(true);
+    // if (req.params.method === "deckClick") {
+    //   console.log(id);
+    //   await deckClick(id);
+    // } else if (req.params.method === "statClick" && req.body) {
+    //   const { stat } = req.body;
+    //   const { player1, player2 } = state;
+
+    //   await decideTurn(statClick(player1.deck[0][stat], player2.deck[0][stat]));
+    // }
+
+    const game = await getGame(id);
+    res.json(game);
   });
 };

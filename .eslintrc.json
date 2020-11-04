@@ -29,7 +29,8 @@
         "func-names": ["error", "never"],
         "react/jsx-one-expression-per-line": ["off"],
         "react/jsx-props-no-spreading": [0],
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        "no-underscore-dangle": "off"
     },
     "settings": {
         "react": {

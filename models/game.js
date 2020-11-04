@@ -36,7 +36,7 @@ const gameSchema = new Schema(
     hand: {
       type: Object,
       required: true,
-      default: {},
+      default: Object,
     },
   },
 );

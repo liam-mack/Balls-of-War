@@ -1,7 +1,8 @@
-const { Op, Sequelize } = require("sequelize");
+/* eslint-disable no-underscore-dangle */
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const Game = require("../models/game.js");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -32,6 +33,10 @@ module.exports = function (app) {
       });
   });
 
+  // app.get("/selection", isAuthenticated, async (req, res) => {
+  //   res.json(true);
+  // });
+
   app.get("/api/:team", async (req, res) => {
     const deck = await db[req.params.team].findAll({});
     // console.log(deck[0].dataValues);
@@ -47,22 +52,65 @@ module.exports = function (app) {
     res.json(modifiedDeck);
   });
 
-  app.post("/api/lakers", async (req, res) => {
-    const player = await db.Lakers.create({
-    // id: uuidv4(),
-      name: "Shamik",
-      position: "SG",
-      jersey: 2,
-      height: "6'4",
-      weight: 280,
-      points: 32,
-      fieldgoal: 0.45,
-      rebounds: 11,
-      assists: 12,
-      personalfouls: 0.2,
-      image: null,
+  async function getDeck(team) {
+    const deck = await db[team].findAll({});
+    // console.log(deck[0].dataValues);
+    const modifiedDeck = deck.map((element) => element.dataValues);
+
+    // Fisher yates shuffle
+    for (let i = modifiedDeck.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * i);
+      const temp = modifiedDeck[i];
+      modifiedDeck[i] = modifiedDeck[j];
+      modifiedDeck[j] = temp;
+    }
+
+    return modifiedDeck;
+  }
+
+  app.post("/api/game", async (req, res) => {
+    const player1team = req.body.player1.charAt(0).toUpperCase() + req.body.player1.slice(1);
+    const player2team = req.body.player2.charAt(0).toUpperCase() + req.body.player2.slice(1);
+
+    const p1Deck = await getDeck(player1team);
+    const p2Deck = await getDeck(player2team);
+
+    const state = {
+      status: true,
+      player1: {
+        team: player1team, deck: p1Deck,
+      },
+      player2: {
+        team: player2team, deck: p2Deck,
+      },
+    };
+    Game.create(state).then((game) => {
+      res.redirect(`/play/${game._id}`);
     });
-    res.json(player);
-    console.log(player);
+  });
+
+  app.get("/api/game/:id", async (req, res) => {
+    Game.findById(req.params.id).then((game) => {
+      res.json(game);
+    });
   });
 };
+// { player1: 'lakers', player2: 'lakers' }
+// app.post("/api/lakers", async (req, res) => {
+//   const player = await db.Lakers.create({
+//   // id: uuidv4(),
+//     name: "Shamik",
+//     position: "SG",
+//     jersey: 2,
+//     height: "6'4",
+//     weight: 280,
+//     points: 32,
+//     fieldgoal: 0.45,
+//     rebounds: 11,
+//     assists: 12,
+//     personalfouls: 0.2,
+//     image: null,
+//   });
+//   res.json(player);
+//   console.log(player);
+// });

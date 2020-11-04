@@ -6,7 +6,18 @@ export default {
   async getPlayers(team) {
     return await axios.get(`/api/${team}`);
   },
-  postPlayers() {
+  async postPlayers() {
     return axios.post("/api/lakers");
   },
+  async signUp() {
+    return await axios.post("/signup");
+  },
+  async createGame(players) {
+    return await axios.post("/api/game", players);
+  },
+  async getGame(id) {
+    console.log(id);
+    return await axios.get(`/api/game/${id.session}`);
+  },
+  
 };

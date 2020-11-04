@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
@@ -15,10 +14,15 @@ function App() {
         {/* <Home /> */}
         <Selection />
       </Route>
-      <Route exact path="/decks">
+      <Route exact path="/selection">
         <Selection />
       </Route>
-      <Route path="/play" component={Play} />
+      <Route path="/play/:session">
+        <Play />
+      </Route>
+      {/* <Route path="/play">
+        <Play />
+      </Route> */}
     </Switch>
   );
 }

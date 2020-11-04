@@ -7,7 +7,11 @@
     background-position: center;
     border: 1px solid;
     position: absolute;
+<<<<<<< HEAD:client/src/components/Play/deck.css
+    border-radius: 10px;
+=======
     z-index: 2;
+>>>>>>> main:client/src/components/gamePage/placeholder.css
   }
   .playCard1{
     top: 55%;
@@ -39,6 +43,28 @@
     margin-bottom: 10px;
   }
 
+<<<<<<< HEAD:client/src/components/Play/deck.css
+/* Team Colors */
+.Lakers {
+  /* background: linear-gradient(gold, purple); */
+  background-image: url("../../images/Lakers.png");
+}
+
+.Raptors {
+  /* background: linear-gradient(#CE1141,#000000,#A1A1A4); */
+  background-image: url("../../images/Raptors.png");
+}
+
+.Heat {
+  /* background: linear-gradient(#98002E, #F9A01B, #000000) ; */
+  background-image: url("../../images/Heat.png");
+}
+
+.Rockets {
+  /* background: linear-gradient(#C4CED4, #CE1141, #000000) */
+  background-image: url("../../images/Rockets.png");
+}
+=======
   .lakersDeck{
     background-image: url(../../images/Lakers.png);
   }
@@ -51,3 +77,4 @@
     .rocketsDeck{
         background-image: url(../../images/Rockets.png);
     }
+>>>>>>> main:client/src/components/gamePage/placeholder.css

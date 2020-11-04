@@ -7,6 +7,7 @@
     background-position: center;
     border: 1px solid;
     position: absolute;
+    border-radius: 10px;
   }
   .playCard1{
     top: 65%;
@@ -37,3 +38,24 @@
     bottom: 50%;
     margin-bottom: 10px;
   }
+
+/* Team Colors */
+.Lakers {
+  /* background: linear-gradient(gold, purple); */
+  background-image: url("../../images/Lakers.png");
+}
+
+.Raptors {
+  /* background: linear-gradient(#CE1141,#000000,#A1A1A4); */
+  background-image: url("../../images/Raptors.png");
+}
+
+.Heat {
+  /* background: linear-gradient(#98002E, #F9A01B, #000000) ; */
+  background-image: url("../../images/Heat.png");
+}
+
+.Rockets {
+  /* background: linear-gradient(#C4CED4, #CE1141, #000000) */
+  background-image: url("../../images/Rockets.png");
+}

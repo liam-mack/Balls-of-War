@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 import "./selection.css"
 
 
@@ -42,7 +43,12 @@ function Selection() {
               ;
           })}      
         </div>
-      <button id='playButton'><Link to={{ pathname: "/play/", state: { player1, player2 } }}><span>Start</span></Link></button>
+      <button id='playButton' onClick={() => API.createGame({ player1, player2})}>
+        {/* <Link  */}
+          {/* onClick={() => API.createGame({ player1, player2})} to={{ pathname: "/play/:session", state: { player1, player2 } }}> */}
+          <span>Start</span>
+        {/* </Link> */}
+        </button>
     </div>
   );
 }

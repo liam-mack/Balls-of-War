@@ -32,3 +32,8 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+// module.exports = {
+//   // eslint-disable-next-line global-require
+//   Game: require("./game"),
+// };

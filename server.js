@@ -3,6 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const compression = require("compression");
 const passport = require("./config/passport");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
 const db = require("./models");
 // const SeedBomb = require("./sql/seedBomb");
 
@@ -11,6 +13,7 @@ const app = express();
 
 // Define middleware here
 app.use(compression());
+app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -23,7 +26,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true }),
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -45,3 +47,13 @@ db.sequelize.sync().then(() => {
 // { force: true }
 // return SeedBomb();
 // }).then(() => {
+
+// Setup game state in nosql
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wargame", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+}).then(() => {
+  console.log("Mongo Database Connected");
+});

@@ -20,11 +20,8 @@ export default {
     return await axios.get(`/api/game/${id.session}`);
   },
   async playGame(id,method,stat) {
-    console.log(method);
-    console.log(id);
-
+    console.log(method, id, stat);
     return await axios.put(`/api/game/${id}/${method}`, {stat} )
-
   }
    
 };

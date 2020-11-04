@@ -1,0 +1,16 @@
+.player1Grave, .player2Grave{
+    width: 150px;
+    height: 200px;
+    background-color: #ffebcd;
+    z-index: 1;
+    position: absolute;
+}
+
+.player1Grave{
+    top: 65%;
+    left: 3%
+}
+.player2Grave{
+    top: 5%;
+    right: 3%;
+}

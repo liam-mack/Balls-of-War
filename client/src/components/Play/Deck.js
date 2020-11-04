@@ -6,7 +6,7 @@ import "./deck.css";
 
 function Deck({ id, onClick, className }) {
   return (
-    <div id={id} className={className} onClick={async (e) => onClick(e.target.id)} />
+    <div id={id} className={className} onClick={async () => onClick()} />
   );
 }
 

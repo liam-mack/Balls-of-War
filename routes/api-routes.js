@@ -94,23 +94,30 @@ module.exports = function (app) {
       res.json(game);
     });
   });
+
+  async function deckClick(state) {
+    console.log(state);
+    if (state.turn) {
+      await Game.findByIdAndUpdate((state._id), { hand: state.player1.deck[0] });
+      await Game.findByIdAndUpdate((state._id), { turn: false });
+    } else {
+      await Game.findByIdAndUpdate(state._id, { hand: state.player2.deck[0] });
+      await Game.findByIdAndUpdate((state._id), { turn: true });
+    }
+  }
+
+  async function statClick(statOne, statTwo) {
+    return (statOne - statTwo);
+  }
+
+  app.put("/api/game/:id/:method", async (req, res) => {
+    const state = await Game.findById(req.params.id);
+    if (req.params.method === "deckClick") {
+      await deckClick(state);
+    } else if (req.params.method === "statClick" && req.body) {
+      console.log(req.body);
+      await statClick(state.player1.deck[0][req.body.stat], state.player2.deck[0][req.body.stat]);
+    }
+    res.json(true);
+  });
 };
-// { player1: 'lakers', player2: 'lakers' }
-// app.post("/api/lakers", async (req, res) => {
-//   const player = await db.Lakers.create({
-//   // id: uuidv4(),
-//     name: "Shamik",
-//     position: "SG",
-//     jersey: 2,
-//     height: "6'4",
-//     weight: 280,
-//     points: 32,
-//     fieldgoal: 0.45,
-//     rebounds: 11,
-//     assists: 12,
-//     personalfouls: 0.2,
-//     image: null,
-//   });
-//   res.json(player);
-//   console.log(player);
-// });

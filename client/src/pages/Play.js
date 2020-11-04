@@ -4,10 +4,6 @@ import { useLocation, useParams } from "react-router-dom";
 import API from "../utils/API";
 import Deck from "../components/Play/Deck";
 import Actions from "../utils/Actions";
-// import PlayerCard from "../components/gamePage/playerCard"
-// import Actions from "../utils/Actions";
-// import GameHand from "../components/GameHand";
-
 
 function Play() {
   const session = useParams();

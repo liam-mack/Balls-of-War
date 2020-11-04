@@ -35,8 +35,8 @@ const gameSchema = new Schema(
     },
     hand: {
       type: Object,
-      required: false,
-      default: "this.player1/player2.deck.length-1",
+      required: true,
+      default: {},
     },
   },
 );

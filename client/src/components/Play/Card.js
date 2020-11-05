@@ -13,7 +13,7 @@ function Card ({ name, position, jersey, height, weight, points, fieldgoal, rebo
         <h4 onClick= { (event) => onClick(event.target) }>{ name }</h4>
         <h4 onClick= { (event) => onClick(event.target) }>{ position }</h4>
         <h4 onClick= { (event) => onClick(event.target) }>{ jersey }</h4>
-        <img src={process.env.PUBLIC_URL + `img/${name.replace(/\s+/g, '')}.png`} alt="logo"/>
+
         {/* < PlayerStats /> */}
         <h4 className="playerCard1__height stat" onClick= { (event) => onClick(event.target) }> { height} </h4>
         <h4 className="playerCard1__weight stat" onClick= { (event) => onClick(event.target) }> { weight} </h4>

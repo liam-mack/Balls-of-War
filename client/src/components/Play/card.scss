@@ -1,0 +1,87 @@
+$lakers-pri: #FDB927;
+$lakers-sec: #552583;
+$heat-pri: #98002E;
+$heat-sec: #000000;
+$raptors-pri: #000000;
+$raptors-sec: #A1A1A4;
+$rockets-pri: #CE1141;
+$rockets-sec: #C4CED4;
+
+
+
+
+.playerCard1 {
+    border: 5px double black;
+    border-radius: 25px;
+    background-color: #ffffff;
+    min-width: 15%;
+    text-align: center;
+
+    &__height{
+        background-color: $lakers-pri;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__weight{
+        background-color: $lakers-sec;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__points{
+        background-color: $lakers-pri;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__fieldgoal{
+        background-color: $lakers-sec;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__rebounds{
+        background-color: $lakers-pri;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__assists{
+        background-color: $lakers-sec;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__personalfouls{
+        background-color: $lakers-pri;
+        // border-radius: 10px;
+        margin: 0;
+        padding: 0.5rem
+    }
+
+    &__turnovers {
+        background-color: $lakers-sec;
+        // border-radius: 10px;
+        color: white;
+        margin: 0;
+        padding: 0.5rem;
+        
+    }
+
+}
+.playCard1:hover{
+    cursor: pointer
+} 
+.playCard2:hover{
+    cursor: pointer
+}
+.stat:hover{
+    cursor: pointer
+}

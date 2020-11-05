@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   clickDeck(deck) {
     return deck[deck.length - 1];

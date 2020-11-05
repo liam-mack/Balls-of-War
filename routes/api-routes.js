@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+const e = require("express");
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -104,28 +105,62 @@ module.exports = function (app) {
   }
 
   // const updated = await Game.findByIdAndUpdate((state._id), { turn: false });
+  // await Game.findByIdAndUpdate((state._id), { turn: false });
+  // await Game.findByIdAndUpdate((state._id), { turn: true });
 
   async function deckClick(id) {
     const state = await getGame(id);
-    if (state.turn) {
-      console.log("player1 hand set");
+    if (state.count % 2 === 0) {
       await Game.findByIdAndUpdate((state._id), { hand: state.player1.deck[0] });
-      // await Game.findByIdAndUpdate((state._id), { turn: false });
       return;
     }
     await Game.findByIdAndUpdate(state._id, { hand: state.player2.deck[0] });
-    // await Game.findByIdAndUpdate((state._id), { turn: true });
-    console.log("player2 hand set");
+  }
+
+  function decideWinner(turn, result) {
+    if (turn) {
+      switch (Math.sign(result)) {
+      case 1:
+        return "player1";
+      case 2:
+        return "player2";
+      default:
+        return "tie";
+      }
+    }
+
+    switch (Math.sign(result)) {
+    case 1:
+      return "player2";
+    case 2:
+      return "player1";
+    default:
+      return "tie";
+    }
   }
 
   async function statClick(id, stat) {
     const state = await getGame(id);
     const statOne = state.player1.deck[0][stat];
     const statTwo = state.player2.deck[0][stat];
-    const result = statOne - statTwo;
-    // state.turn - flip result if state.turn is false
+    const { turn } = state;
+    let winner;
+    turn ? winner = decideWinner(turn, statOne - statTwo)
+      : winner = decideWinner(turn, statTwo - statOne);
 
-    return result;
+    // if (turn && winner === "player2") {
+    //   state.turn = !state.turn;
+    //   state.save();
+    // } else if {
+
+    // };
+
+    state[winner].grave.push(state.player1.deck[0], state.player2.deck[0]);
+    state.player1.deck.shift();
+    state.player2.deck.shift();
+    state.count += 1;
+    state.hand = {};
+    await state.save();
   }
 
   app.put("/api/game/:id/:method", async (req, res) => {
@@ -136,20 +171,11 @@ module.exports = function (app) {
       await deckClick(id);
       break;
     case "statClick":
-      await statClick(id, req.body.id);
+      await statClick(id, req.body.stat);
       break;
     default:
       break;
     }
-    // if (req.params.method === "deckClick") {
-    //   console.log(id);
-    //   await deckClick(id);
-    // } else if (req.params.method === "statClick" && req.body) {
-    //   const { stat } = req.body;
-    //   const { player1, player2 } = state;
-
-    //   await decideTurn(statClick(player1.deck[0][stat], player2.deck[0][stat]));
-    // }
 
     const game = await getGame(id);
     res.json(game);

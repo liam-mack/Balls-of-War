@@ -5,6 +5,11 @@ const { Schema } = mongoose;
 // Define game state details
 const gameSchema = new Schema(
   {
+    count: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     status: {
       type: Boolean,
       required: true,
@@ -21,16 +26,19 @@ const gameSchema = new Schema(
         type: String,
       },
       deck: [Object],
+      grave: [Object],
     },
     player2: {
       team: {
         type: String,
       },
       deck: [Object],
+      grave: [Object],
     },
     turn: {
       type: Boolean,
-      required: false,
+      trim: true,
+      required: true,
       default: true,
     },
     hand: {

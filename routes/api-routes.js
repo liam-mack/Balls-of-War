@@ -71,6 +71,7 @@ module.exports = function (app) {
     return modifiedDeck;
   }
 
+  // Create a game
   app.post("/api/game", async (req, res) => {
     const player1team = req.body.player1.charAt(0).toUpperCase() + req.body.player1.slice(1);
     const player2team = req.body.player2.charAt(0).toUpperCase() + req.body.player2.slice(1);
@@ -88,7 +89,7 @@ module.exports = function (app) {
       },
     };
     Game.create(state).then((game) => {
-      res.redirect(`/play/${game._id}`);
+      res.json(game._id);
     });
   });
 

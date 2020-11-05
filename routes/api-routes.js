@@ -118,7 +118,7 @@ module.exports = function (app) {
     const state = await getGame(id);
     const statOne = state.player1.deck[0][stat];
     const statTwo = state.player2.deck[0][stat];
-    let result = statOne - statTwo;
+    const result = statOne - statTwo;
     // state.turn - flip result if state.turn is false
 
     return result;

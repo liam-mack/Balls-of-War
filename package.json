@@ -41,7 +41,6 @@
     "node-sass": "^4.14.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.3.5",
-    "node-sass": "^4.14.0"
+    "sequelize": "^6.3.5"
   }
 }

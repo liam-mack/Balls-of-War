@@ -1,34 +1,3 @@
-.loginForm{
-    position: absolute;
-    width: 450px;
-    height: 250px;
-    z-index: 15;
-    top: 45%;
-    left: 45%;
-    margin: -100px 0 0 -150px;
-    background: rgb(219, 214, 214);
-    border-radius: 20%;
-  }
-  
-  .login{
-    text-align: center;
-    padding-top: 10px;
-    font-size: 2.7em;
-    letter-spacing: 5px;
-  }
-  
-  .input{
-    margin: auto;
-    display: block;
-    width: 70%;
-    padding: 5px;
-    font-size: 15px;
-  }
-  
-  input[type=text]{
-    margin-top: -30px;
-    margin-bottom: 10px;
-  }
   
   /*Game page styling*/
   body{

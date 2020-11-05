@@ -21,14 +21,17 @@ module.exports = function (app) {
   // If the user is created successfully, proceed to log the user in otherwise send back an error
   app.post("/api/signup", (req, res) => {
     console.log(req.user);
+    console.log(req.body);
     db.User.create({
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.pass,
     })
       .then(() => {
+        console.log("test");
         res.redirect(307, "/api/login");
       })
       .catch((err) => {
+        console.log(err);
         res.status(401).json(err);
       });
   });
@@ -119,7 +122,7 @@ module.exports = function (app) {
     const state = await getGame(id);
     const statOne = state.player1.deck[0][stat];
     const statTwo = state.player2.deck[0][stat];
-    let result = statOne - statTwo;
+    const result = statOne - statTwo;
     // state.turn - flip result if state.turn is false
 
     return result;

@@ -9,8 +9,9 @@ export default {
   async postPlayers() {
     return axios.post("/api/lakers");
   },
-  async signUp() {
-    return await axios.post("/signup");
+  async signUp(data) {
+    console.log(data)
+    return await axios.post("/api/signup", data);
   },
   async createGame(players) {
     return axios.post("/api/game", players);

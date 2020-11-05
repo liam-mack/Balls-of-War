@@ -1,0 +1,51 @@
+#loginForm{
+    position: absolute;
+    width: 450px;
+    height: 250px;
+    z-index: 15;
+    top: 35%;
+    left: 45%;
+    margin: -100px 0 0 -150px;
+    background: white;
+    border-radius: 20%;
+    text-align: center;
+}
+
+label[for=emailLogin]{
+    text-align: center;
+    padding-left: 20px;
+}
+
+input[type=text]{
+    height: 20px;
+    margin-bottom: 15px ;
+    width: 250px;
+    margin-left: 10px;
+}
+
+input[type=password]{
+    height: 20px;
+    margin-bottom: 15px ;
+    width: 250px;
+    margin-left: 10px;
+}
+
+#lButton{
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: rgb(211, 129, 22);
+    margin-left: 10px;
+}
+
+#sButton{
+    width: 100px;
+    height: 40px;
+    border-radius: 10%;
+    background-color: rgb(211, 129, 22);
+    margin-left: 35px;
+}
+
+button[type=submit]{
+    
+}

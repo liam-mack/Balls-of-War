@@ -1,9 +1,9 @@
-/* eslint-disable */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
-import "./selection.css"
-
+import "./selection.css";
 
 function Selection() {
   const [player1, setPlayer1] = useState(null);
@@ -12,43 +12,47 @@ function Selection() {
     event.target.name === "player1" ? setPlayer1(event.target.value) : setPlayer2(event.target.value);
   };
 
-  const [teams, setTeams] = useState(["lakers", "heat", "raptors", "rockets"]);
+  const teams = ["lakers", "heat", "raptors", "rockets"];
+  const history = useHistory();
+
+  async function redirect() {
+    await API.createGame({ player1, player2 }).then((res) => {
+      history.push(`/play/${res.data}`);
+    });
+  }
+
   return (
     <div className="tempCheck">
-      <h1 id='intro'>Choose Your Teams</h1>
+      <h1 id="intro">Choose Your Teams</h1>
       <div className="playSelect1">
-      <h2 id='playerone'> Player 1 Select: <span id='teamName'>{player1}</span></h2>
-          {teams.map(team=>{
-              return (
-                <>
-                    <input id={team} type="radio" value={team} name="player1" onChange={onChange}/> 
-                    {/* {team} */}
-                    <label className={`playerDecks ${team}`} for={team}></label>
-                </>
-              )
-              ;
-          })}
+        <h2 id="playerone"> Player 1 Select: <span id="teamName">{player1}</span></h2>
+        {teams.map((team, index) => (
+          <>
+            <input key={index} id={team} type="radio" value={team} name="player1" onChange={onChange} />
+            <label className={`playerDecks ${team}`} htmlFor={team} />
+          </>
+        ))}
       </div>
-      <h1 id='versus'>VS</h1>
+
+      <h1 id="versus">VS</h1>
+
       <div className="playSelect2">
-      <h2 id='playertwo'>Player 2 Select: <span id='teamName'>{player2}</span></h2>
-      {teams.map(team=>{
-              return (
-                <>
-                    <input id={`player2 ${team}`} type="radio" value={team} name="player2" onChange={onChange}/> 
-                    {/* {team} */}
-                    <label className={`playerDecks ${team}`} for={`player2 ${team}`}></label>
-                </>
-              )
-              ;
-          })}      
-        </div>
-      <button id='playButton' onClick={() => API.createGame({ player1, player2})}>
-        {/* <Link  */}
-          {/* onClick={() => API.createGame({ player1, player2})} to={{ pathname: "/play/:session", state: { player1, player2 } }}> */}
-          <span>Start</span>
-        {/* </Link> */}
-        </button>
+        <h2 id="playertwo">Player 2 Select: <span id="teamName">{player2}</span></h2>
+        {teams.map((team, index) => (
+          <>
+            <input id={`player2 ${team}`} type="radio" value={team} name="player2" onChange={onChange} />
+            <label key={index} className={`playerDecks ${team}`} htmlFor={`player2 ${team}`} />
+          </>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        id="playButton"
+        onClick={redirect}
+      >
+        <span>Start</span>
+      </button>
     </div>
   );
 }

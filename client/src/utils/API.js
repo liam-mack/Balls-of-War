@@ -14,7 +14,7 @@ export default {
     return await axios.post("/api/signup", data);
   },
   async createGame(players) {
-    return await axios.post("/api/game", players);
+    return axios.post("/api/game", players);
   },
   async getGame(id) {
     console.log(id);

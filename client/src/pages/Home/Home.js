@@ -24,7 +24,7 @@ function Home() {
   return (
     <>
       <form id="loginForm">
-        <h1>Home</h1>
+        <h1>Balls of War</h1>
         <div>
           <label htmlFor="emailLogin">
             Email:

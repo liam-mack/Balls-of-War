@@ -1,11 +1,10 @@
-  
-  /*Game page styling*/
-  body{
-    background-image:url(./images/bCourt.png) !important;
-    background-repeat: no-repeat;
-    background-size: 100% 750px;
-    /* background-position: center center;
-    min-height: 100%; */
-  }
+/*Game page styling*/
+body{
+  background-image:url(./images/bCourt.png) !important;
+  background-repeat: no-repeat;
+  background-size: 100% 750px;
+  /* background-position: center center;
+  min-height: 100%; */
+}
   
  

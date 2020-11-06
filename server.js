@@ -1,10 +1,9 @@
-/* eslint-disable */
 const express = require("express");
 const session = require("express-session");
 const compression = require("compression");
-const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+const passport = require("./config/passport");
 const db = require("./models");
 // const SeedBomb = require("./sql/seedBomb");
 
@@ -33,6 +32,16 @@ app.use(passport.session());
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
+// Setup game state in nosql
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wargame", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+}).then(() => {
+  console.log("Mongo Database Connected");
+});
+
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
@@ -47,13 +56,3 @@ db.sequelize.sync().then(() => {
 // { force: true }
 // return SeedBomb();
 // }).then(() => {
-
-// Setup game state in nosql
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/wargame", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-}).then(() => {
-  console.log("Mongo Database Connected");
-});

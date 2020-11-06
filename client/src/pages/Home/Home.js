@@ -1,7 +1,6 @@
-/* eslint-disable */
 import React, { useState } from "react";
 import API from "../../utils/API";
-import './home.css'
+import "./home.css";
 
 function Home() {
   const [email, setEmail] = useState();
@@ -17,15 +16,15 @@ function Home() {
     console.log(email, pass);
   }
 
-  function signUp(e){
+  function signUp(e) {
     e.preventDefault();
-    API.signUp({email, pass})
+    API.signUp({ email, pass });
   }
 
   return (
     <>
-      <form id='loginForm'>
-        <h1>Home {/*{email} {pass}*/}</h1>
+      <form id="loginForm">
+        <h1>Home</h1>
         <div>
           <label htmlFor="emailLogin">
             Email:
@@ -38,24 +37,11 @@ function Home() {
             <input type="password" name="passLogin" onChange={loginInfo} />
           </label>
           <div>
-            <button id='lButton' type="submit" onClick={loginAuth}>Log In</button>
-            <button id='sButton' type="submit" onClick={signUp}>Sign Up</button>
+            <button id="lButton" type="submit" onClick={loginAuth}>Log In</button>
+            <button id="sButton" type="submit" onClick={signUp}>Sign Up</button>
           </div>
         </div>
       </form>
-
-      {/* <form method="post" action="/api/signup">
-        <h1>Signup</h1>
-        <label htmlFor="emailSignup">
-          Email
-          <input type="text" name="emailSignup" />
-        </label>
-        <label htmlFor="passSignup">
-          Password
-          <input type="text" name="passSignup" />
-        </label>
-        <button type="submit" onClick={API.signUp}>Signup</button>
-      </form> */}
     </>
   );
 }

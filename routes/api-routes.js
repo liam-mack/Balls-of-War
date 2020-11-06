@@ -104,62 +104,77 @@ module.exports = function (app) {
     return Game.findById(id);
   }
 
-  // const updated = await Game.findByIdAndUpdate((state._id), { turn: false });
-  // await Game.findByIdAndUpdate((state._id), { turn: false });
-  // await Game.findByIdAndUpdate((state._id), { turn: true });
-
-  async function deckClick(id) {
+  async function setHand(id) {
     const state = await getGame(id);
-    if (state.count % 2 === 0) {
-      await Game.findByIdAndUpdate((state._id), { hand: state.player1.deck[0] });
+    const { player1, player2, turn } = state;
+    if (player1.hand.length > 0 || player2.hand.length > 0) {
       return;
     }
-    await Game.findByIdAndUpdate(state._id, { hand: state.player2.deck[0] });
+
+    if (turn) {
+      player1.hand.push(player1.deck[0]);
+      player1.deck.shift();
+    } else {
+      player2.hand.push(player2.deck[0]);
+      player2.deck.shift();
+    }
+    await state.save();
   }
 
-  function decideWinner(turn, result) {
-    if (turn) {
-      switch (Math.sign(result)) {
-      case 1:
-        return "player1";
-      case 2:
-        return "player2";
-      default:
-        return "tie";
-      }
+  async function setOppHand(id) {
+    const state = await getGame(id);
+    const { turn, player1, player2 } = state;
+    if (player1.hand.length > 0 && player2.hand.length > 0) {
+      return;
     }
 
-    switch (Math.sign(result)) {
-    case 1:
-      return "player2";
-    case 2:
-      return "player1";
-    default:
+    if (turn) {
+      player2.hand.push(player2.deck[0]);
+      player2.deck.shift();
+    } else {
+      player1.hand.push(player1.deck[0]);
+      player1.deck.shift();
+    }
+    await state.save();
+  }
+
+  async function decideWinner(turn, result) {
+    console.log(turn, result);
+    if (turn) {
+      if (result > 0) {
+        return "player1";
+      } if (result < 0) {
+        return "player2";
+      }
       return "tie";
     }
+    if (result > 0) {
+      return "player2";
+    } if (result < 0) {
+      return "player1";
+    }
+    return "tie";
   }
 
   async function statClick(id, stat) {
     const state = await getGame(id);
-    const statOne = state.player1.deck[0][stat];
-    const statTwo = state.player2.deck[0][stat];
-    const { turn } = state;
+    const statOne = state.player1.hand[0][stat];
+    const statTwo = state.player2.hand[0][stat];
+    const { turn, count } = state;
     let winner;
-    turn ? winner = decideWinner(turn, statOne - statTwo)
-      : winner = decideWinner(turn, statTwo - statOne);
+    turn ? winner = await decideWinner(turn, statOne - statTwo)
+      : winner = await decideWinner(turn, statTwo - statOne);
 
-    // if (turn && winner === "player2") {
-    //   state.turn = !state.turn;
-    //   state.save();
-    // } else if {
+    console.log(winner);
+    state[winner].grave.push(...state.player1.hand, ...state.player2.hand);
+    await state.save();
+    state.player1.hand = [];
+    state.player2.hand = [];
+    state.count = count + 1;
 
-    // };
-
-    state[winner].grave.push(state.player1.deck[0], state.player2.deck[0]);
-    state.player1.deck.shift();
-    state.player2.deck.shift();
-    state.count += 1;
-    state.hand = {};
+    if ((turn && winner === "player2") || (!turn && winner === "player1")) {
+      state.turn = !turn;
+    }
     await state.save();
   }
 
@@ -168,7 +183,10 @@ module.exports = function (app) {
 
     switch (method) {
     case "deckClick":
-      await deckClick(id);
+      await setHand(id);
+      break;
+    case "oppHand":
+      await setOppHand(id);
       break;
     case "statClick":
       await statClick(id, req.body.stat);

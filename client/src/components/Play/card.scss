@@ -3,7 +3,7 @@ $lakers-sec: #552583;
 $heat-pri: #98002E;
 $heat-sec: #000000;
 $raptors-pri: #000000;
-$raptors-sec: #ce1141;
+$raptors-sec: #CE1141;
 $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
@@ -39,47 +39,65 @@ $rockets-sec: #C4CED4;
         max-width: 60%;
         min-width: 125px;
         padding: 0;
+        margin: 0
     }
 
-    &__Lakers1 {
+    &__Lakers2 {
         background-color: $lakers-pri;
         padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
-    &__Lakers2 {
+    &__Lakers1 {
         background-color: $lakers-sec;
         color: $lakers-pri !important;
         padding: 0.5rem;
         border-radius: 25px;
-    }
-    &__Heat1 {
-        background-color: $heat-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Heat2 {
+        background-color: $heat-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+    }
+    &__Heat1 {
         background-color: $heat-sec;
         padding: 0.5rem;
         color: $heat-pri !important;
         border-radius: 25px;
-    }
-    &__Raptors1 {
-        background-color: $raptors-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Raptors2 {
+        background-color: $raptors-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+        
+    }
+    &__Raptors1 {
         background-color: $raptors-sec;
         padding: 0.5rem;
         color: $raptors-pri !important;
         border-radius: 25px;
-    }
-    &__Rockets1 {
-        background-color: $rockets-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Rockets2 {
+        background-color: $rockets-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+    }
+    &__Rockets1 {
         background-color: $rockets-sec;
         padding: 0.5rem;
         color: $rockets-pri !important;
         border-radius: 25px;
+        max-width: 80%;
+        margin: auto !important;
 
     }
 
@@ -107,47 +125,65 @@ $rockets-sec: #C4CED4;
         max-width: 60%;
         min-width: 125px;
         padding: 0;
+        margin: 0
     }
 
-    &__Lakers1 {
+    &__Lakers2 {
         background-color: $lakers-pri;
         padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
-    &__Lakers2 {
+    &__Lakers1 {
         background-color: $lakers-sec;
         color: $lakers-pri !important;
         padding: 0.5rem;
         border-radius: 25px;
-    }
-    &__Heat1 {
-        background-color: $heat-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Heat2 {
+        background-color: $heat-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+    }
+    &__Heat1 {
         background-color: $heat-sec;
         padding: 0.5rem;
         color: $heat-pri !important;
         border-radius: 25px;
-    }
-    &__Raptors1 {
-        background-color: $raptors-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Raptors2 {
+        background-color: $raptors-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+        
+    }
+    &__Raptors1 {
         background-color: $raptors-sec;
         padding: 0.5rem;
         color: $raptors-pri !important;
         border-radius: 25px;
-    }
-    &__Rockets1 {
-        background-color: $rockets-pri;
-        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
     }
     &__Rockets2 {
+        background-color: $rockets-pri;
+        padding: 0.5rem;
+        max-width: 80%;
+        margin: auto !important;
+    }
+    &__Rockets1 {
         background-color: $rockets-sec;
         padding: 0.5rem;
         color: $rockets-pri !important;
         border-radius: 25px;
+        max-width: 80%;
+        margin: auto !important;
 
     }
 
@@ -175,6 +211,8 @@ $rockets-sec: #C4CED4;
     background-color: blue !important;
     color: white !important;
     border-radius: 25px !important;
+    max-width: 60%;
+    margin: auto
 }
 
 

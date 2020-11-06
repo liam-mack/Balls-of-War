@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import Card from "../components/Play/Card"
-import images from "../images/Card/Images";
+// import images from "../images/Card/Images";
 
 function Opponent({
   name, position, jersey, height, weight, points, fieldgoal, rebounds, assists,

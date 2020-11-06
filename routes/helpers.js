@@ -19,9 +19,14 @@ const getDeck = async (team) => {
 const getGame = async (id) => Game.findById(id);
 
 const checkGame = async (game) => {
-  // const { status, player1, player2 } = state;
-  // console.log(status, player1.team, player2.team);
-  console.log(game);
+  const { status, player1, player2 } = game;
+
+  if (!status) {
+    return;
+  }
+  if (...player1 === 0) {
+    await
+  }
 };
 
 const setHand = async (id) => {

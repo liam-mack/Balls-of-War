@@ -1,11 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
-import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter, Redirect, Route, Switch,
+} from "react-router-dom";
 import Play from "./pages/Play";
 import Selection from "./pages/Selection/Selection";
 import Home from "./pages/Home";
 // import Login from "./pages/Login";
 import API from "./utils/API";
+import "./App.css";
 
 const UserContext = createContext(null);
 
@@ -32,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/play/:session">
             <Play />
+          </Route>
+          <Route>
+            <Redirect to="/" />
           </Route>
         </Switch>
       </BrowserRouter>

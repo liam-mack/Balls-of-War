@@ -24,9 +24,9 @@ const checkGame = async (game) => {
   if (!status) {
     return;
   }
-  if (...player1 === 0) {
-    await
-  }
+  if (player1 === 0) {
+    console.log("needs work");
+  };
 };
 
 const setHand = async (id) => {

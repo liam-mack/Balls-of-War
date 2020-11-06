@@ -28,13 +28,11 @@ const gameSchema = new Schema(
       deck: [Object],
       grave: {
         type: [Object],
-        required: true,
-        unique: true,
+        required: false,
       },
       hand: {
         type: [Object],
-        required: true,
-        unique: true,
+        required: false,
       },
     },
     player2: {
@@ -44,13 +42,11 @@ const gameSchema = new Schema(
       deck: [Object],
       grave: {
         type: [Object],
-        required: true,
-        unique: true,
+        required: false,
       },
       hand: {
         type: [Object],
-        required: true,
-        unique: true,
+        required: false,
       },
     },
     turn: {

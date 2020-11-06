@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Axios from "axios";
 import API from "../utils/API";
 import Deck from "../components/Play/Deck";
 import Card from "../components/Play/Card";
@@ -23,7 +22,7 @@ function Play() {
 
   async function statClick({ id }) {
     console.log(id);
-    const { data } = await Axios.put(`/api/game/${game._id}/oppHand`);
+    const { data } = await API.playGame(game._id, "oppHand");
     setGame(data);
     setTimeout(async () => {
       const res = await API.playGame(game._id, "statClick", id);

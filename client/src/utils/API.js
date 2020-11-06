@@ -3,11 +3,14 @@ import axios from "axios";
 export default {
   async signUp(data) {
     console.log(data);
-    return axios.post("/api/signup", data);
+    return axios.post("/signup", data);
+  },
+  async login(data) {
+    return axios.post("/login", data);
   },
   // Create game
   async createGame(players) {
-    return axios.post("/api/game", players);
+    return axios.post("api/game/create", players);
   },
   // Get game id
   async getGame(id) {

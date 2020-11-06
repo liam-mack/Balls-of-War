@@ -18,6 +18,12 @@ const getDeck = async (team) => {
 
 const getGame = async (id) => Game.findById(id);
 
+const checkGame = async (game) => {
+  // const { status, player1, player2 } = state;
+  // console.log(status, player1.team, player2.team);
+  console.log(game);
+};
+
 const setHand = async (id) => {
   const state = await getGame(id);
   const { player1, player2, turn } = state;
@@ -26,10 +32,10 @@ const setHand = async (id) => {
   }
 
   if (turn) {
-    player1.hand.push(player1.deck[0]);
+    player1.hand.unshift(player1.deck[0]);
     player1.deck.shift();
   } else {
-    player2.hand.push(player2.deck[0]);
+    player2.hand.unshift(player2.deck[0]);
     player2.deck.shift();
   }
   await state.save();
@@ -69,6 +75,7 @@ const decideWinner = (turn, result) => {
   }
   return "tie";
 };
+
 const heightToNumber = (stat) => {
   const feet = stat[0];
   const inches = stat.slice(2);
@@ -93,6 +100,11 @@ const statClick = async (id, stat) => {
   turn ? winner = decideWinner(turn, statOne - statTwo)
     : winner = decideWinner(turn, statTwo - statOne);
 
+  if (winner === "tie") {
+    await setHand(id);
+    return;
+  }
+
   if (stat === "turnovers" || stat === "personalfouls") {
     if (winner === "player1") {
       winner = "player2";
@@ -114,5 +126,5 @@ const statClick = async (id, stat) => {
 };
 
 module.exports = {
-  getDeck, setHand, setOppHand, decideWinner, statClick, getGame,
+  getDeck, setHand, setOppHand, decideWinner, statClick, getGame, checkGame,
 };

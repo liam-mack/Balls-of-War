@@ -1,3 +1,4 @@
+/* Deck Cards */
 .playCard1, .playCard2{
     width: 150px !important;
     height: 250px !important;
@@ -24,20 +25,32 @@
     height: 200px;
     width: 100px;
   }
-  
-  .playerCard1, .playerCard2{
+
+  /* Hand Cards */
+  .player1Card, .player2Card{
     position: absolute !important;
-    left:45%;
-    height: 500px;
+    /* left:45%; */
+    /* height: 500px; */
   }
-  .playerCard1{
+  .player1Card{
+    right: 5%
+  }
+  .player1Card{
     top: 50%;
     margin-top: 10px;
   }
   
-  .playerCard2{
-    bottom: 50%;
+  .player2Card{
+    top: 7%;
     margin-bottom: 10px;
+  }
+
+  .scoreboard{
+    position: absolute;
+    bottom: 5%;
+    left: 40%
+    /* background-color: blue; */
+    /* color: white; */
   }
 
 /* Team Colors */

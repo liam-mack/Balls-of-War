@@ -1,9 +1,11 @@
-// /*eslint-disable*/
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Axios from "axios";
 import API from "../utils/API";
 import Deck from "../components/Play/Deck";
 import Card from "../components/Play/Card";
+import Opponent from "./Opponent";
+import Graveyard from "../components/Play/Graveyard";
 
 function Play() {
   const session = useParams();
@@ -20,8 +22,13 @@ function Play() {
   }
 
   async function statClick({ id }) {
-    const { data } = await API.playGame(game._id, "statClick", id);
+    console.log(id);
+    const { data } = await Axios.put(`/api/game/${game._id}/oppHand`);
     setGame(data);
+    setTimeout(async () => {
+      const res = await API.playGame(game._id, "statClick", id);
+      setGame(res.data);
+    }, 5000);
   }
 
   return (
@@ -29,10 +36,26 @@ function Play() {
       <h1>Game Page</h1>
       {game && (
         <>
-          <Deck onClick={deckClick} id="player1" className={`playCard1 ${game.player1.team}`} />
-          <Deck onClick={deckClick} id="player2" className={`playCard2 ${game.player2.team}`} />
-          {game.hand ? <Card onClick={statClick} player="player1" team={game.player1.team} {...game.hand} />
-            : <Card onClick={statClick} player="player2" team={game.player1.team} {...game.hand} />}
+          {game.player1.grave.length > 0 && <Graveyard className="player1" />}
+          {game.player2.grave.length > 0 && <Graveyard className="player2" />}
+
+          {game.turn
+            ? (
+              <>
+                <Deck onClick={deckClick} id="player1" className={`playCard1 ${game.player1.team}`} />
+                <Deck id="player2" className={`playCard2 ${game.player2.team}`} />
+                {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                {(game.player2.hand.length > 0 && <Opponent player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+              </>
+            )
+            : (
+              <>
+                <Deck id="player1" className={`playCard1 ${game.player1.team}`} />
+                <Deck onClick={deckClick} id="player2" className={`playCard2 ${game.player2.team}`} />
+                {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                {(game.player1.hand.length > 0 && <Opponent player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+              </>
+            )}
         </>
       )}
     </>

@@ -26,25 +26,38 @@ const gameSchema = new Schema(
         type: String,
       },
       deck: [Object],
-      grave: [Object],
+      grave: {
+        type: [Object],
+        required: true,
+        unique: true,
+      },
+      hand: {
+        type: [Object],
+        required: true,
+        unique: true,
+      },
     },
     player2: {
       team: {
         type: String,
       },
       deck: [Object],
-      grave: [Object],
+      grave: {
+        type: [Object],
+        required: true,
+        unique: true,
+      },
+      hand: {
+        type: [Object],
+        required: true,
+        unique: true,
+      },
     },
     turn: {
       type: Boolean,
       trim: true,
       required: true,
       default: true,
-    },
-    hand: {
-      type: Object,
-      required: true,
-      default: Object,
     },
   },
 );

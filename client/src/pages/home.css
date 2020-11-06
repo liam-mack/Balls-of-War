@@ -30,7 +30,7 @@ input[type=password]{
     margin-left: 10px;
 }
 
-#lButton{
+#loginBtn{
     width: 100px;
     height: 40px;
     border-radius: 10%;
@@ -38,7 +38,7 @@ input[type=password]{
     margin-left: 10px;
 }
 
-#sButton{
+#signupBtn{
     width: 100px;
     height: 40px;
     border-radius: 10%;

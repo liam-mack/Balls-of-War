@@ -8,9 +8,14 @@ $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
 
+
 #tooltip {
     display: none;
 }
+
+// .playerCard1 {
+//     border: 5px double black;
+  
 
 .LakersCardHome {
     background-color: $lakers-pri; 
@@ -34,6 +39,7 @@ $rockets-sec: #C4CED4;
 }
 
 .player1Card {
+
     border-radius: 25px;
     // min-width: 25%;
     min-width: 125px;

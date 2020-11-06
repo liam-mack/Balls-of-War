@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import API from "../utils/API";
 import Deck from "../components/Play/Deck";
 import Card from "../components/Play/Card";
-import Opponent from "./Opponent";
 import Graveyard from "../components/Play/Graveyard";
 import Scoreboard from "../components/Play/Scoreboard";
 
@@ -45,7 +44,7 @@ function Play() {
                 <Deck onClick={deckClick} id="player1" className={`playCard1 ${game.player1.team}`} />
                 <Deck id="player2" className={`playCard2 ${game.player2.team}`} />
                 {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
-                {(game.player2.hand.length > 0 && <Opponent player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
                 <Scoreboard gameState={game} />
               </>
             )
@@ -54,7 +53,7 @@ function Play() {
                 <Deck id="player1" className={`playCard1 ${game.player1.team}`} />
                 <Deck onClick={deckClick} id="player2" className={`playCard2 ${game.player2.team}`} />
                 {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
-                {(game.player1.hand.length > 0 && <Opponent player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
                 <Scoreboard gameState={game} />
               </>
             )}

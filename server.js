@@ -17,6 +17,11 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "where is hunter", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Define API routes here
 app.use("/auth", require("./routes/auth"));
 app.use("/api/game", require("./routes/game"));
@@ -25,11 +30,6 @@ app.use("/api/game", require("./routes/game"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-// We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "where is hunter", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Send every other request to the React app
 // Define any API routes before this runs

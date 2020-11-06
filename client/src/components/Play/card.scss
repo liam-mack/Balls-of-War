@@ -7,6 +7,10 @@ $raptors-sec: #ce1141;
 $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
+
+// .playerCard1 {
+//     border: 5px double black;
+  
 .LakersCardHome {
     background-color: $lakers-pri; 
     border: 5px double $lakers-sec;
@@ -29,6 +33,7 @@ $rockets-sec: #C4CED4;
 }
 
 .player1Card {
+
     border-radius: 25px;
     // min-width: 25%;
     min-width: 125px;

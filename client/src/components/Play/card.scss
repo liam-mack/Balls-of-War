@@ -7,6 +7,11 @@ $raptors-sec: #CE1141;
 $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
+
+#tooltip {
+    display: none;
+}
+
 .LakersCardHome {
     background-color: $lakers-pri; 
     border: 5px double $lakers-sec;
@@ -105,7 +110,7 @@ $rockets-sec: #C4CED4;
         cursor: pointer;
     }
 
-    &__stat:hover > #tooltip {
+    &__stat:hover + #tooltip {
         display: block;
     }
 
@@ -191,8 +196,8 @@ $rockets-sec: #C4CED4;
         cursor: pointer;
     }
 
-    &__stat:hover > #tooltip {
-        display: block;
+    &__stat:hover + #tooltip {
+        display: block !important;
     }
 
     &__name:hover > .playertip {
@@ -202,9 +207,6 @@ $rockets-sec: #C4CED4;
 }
 
 
-#tooltip {
-    display: none;
-}
 
 .playertip {
     display: none !important;

@@ -2,7 +2,7 @@ const router = require("express").Router();
 // const isAuthenticated = require("../config/middleware/isAuthenticated");
 const Game = require("../models/game.js");
 const {
-  getDeck, getGame, setHand, setOppHand, statClick,
+  getDeck, getGame, setHand, setOppHand, statClick, checkGame,
 } = require("./helpers");
 
 router.get("/:id", async (req, res) => {
@@ -35,6 +35,8 @@ router.post("/create", async (req, res) => {
 
 router.put("/:id/:method", async (req, res) => {
   const { id, method } = req.params;
+  const state = await getGame(id);
+  checkGame(state);
 
   switch (method) {
   case "deckClick":

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Play from "./pages/Play";
 import Selection from "./pages/Selection/Selection";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import API from "./utils/API";
 
 const UserContext = createContext(null);
@@ -25,7 +25,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Selection />
           </Route>
           <Route exact path="/selection">
             <Selection />

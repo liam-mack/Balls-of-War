@@ -3,76 +3,196 @@ $lakers-sec: #552583;
 $heat-pri: #98002E;
 $heat-sec: #000000;
 $raptors-pri: #000000;
-$raptors-sec: #A1A1A4;
+$raptors-sec: #ce1141;
 $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
-.playerCard1 {
-    border: 5px double black;
+
+// .playerCard1 {
+//     border: 5px double black;
+  
+.LakersCardHome {
+    background-color: $lakers-pri; 
+    border: 5px double $lakers-sec;
+    color: $lakers-sec;
+}
+.HeatCardHome {
+    background-color: $heat-pri;
+    border: 5px double $heat-sec;
+    color: $heat-sec;
+}
+.RaptorsCardHome {
+    background-color: $raptors-pri;
+    border: 5px double $raptors-sec;
+    color: $raptors-sec;
+}
+.RocketsCardHome {
+    background-color: $rockets-pri;
+    border: 5px double $rockets-sec;
+    color: $rockets-sec;
+}
+
+.player1Card {
+
     border-radius: 25px;
-    background-color: #ffffff;
-    min-width: 15%;
+    // min-width: 25%;
+    min-width: 125px;
+    max-width: 25%;
     text-align: center;
 
-    &__height{
+    &__img{
+        max-width: 60%;
+        min-width: 125px;
+        padding: 0;
+    }
+
+    &__Lakers1 {
         background-color: $lakers-pri;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__weight{
-        background-color: $lakers-sec;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__points{
-        background-color: $lakers-pri;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__fieldgoal{
-        background-color: $lakers-sec;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__rebounds{
-        background-color: $lakers-pri;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__assists{
-        background-color: $lakers-sec;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__personalfouls{
-        background-color: $lakers-pri;
-        // border-radius: 10px;
-        margin: 0;
-        padding: 0.5rem
-    }
-
-    &__turnovers {
-        background-color: $lakers-sec;
-        // border-radius: 10px;
-        color: white;
-        margin: 0;
         padding: 0.5rem;
-        
+    }
+    &__Lakers2 {
+        background-color: $lakers-sec;
+        color: $lakers-pri !important;
+        padding: 0.5rem;
+        border-radius: 25px;
+    }
+    &__Heat1 {
+        background-color: $heat-pri;
+        padding: 0.5rem;
+    }
+    &__Heat2 {
+        background-color: $heat-sec;
+        padding: 0.5rem;
+        color: $heat-pri !important;
+        border-radius: 25px;
+    }
+    &__Raptors1 {
+        background-color: $raptors-pri;
+        padding: 0.5rem;
+    }
+    &__Raptors2 {
+        background-color: $raptors-sec;
+        padding: 0.5rem;
+        color: $raptors-pri !important;
+        border-radius: 25px;
+    }
+    &__Rockets1 {
+        background-color: $rockets-pri;
+        padding: 0.5rem;
+    }
+    &__Rockets2 {
+        background-color: $rockets-sec;
+        padding: 0.5rem;
+        color: $rockets-pri !important;
+        border-radius: 25px;
+
+    }
+
+    &__stat:hover {
+        cursor: pointer;
+    }
+
+    &__stat:hover > #tooltip {
+        display: block;
+    }
+
+    &__name:hover > .playertip {
+        display: block !important;
     }
 
 }
+.player2Card {
+    border-radius: 25px;
+    // min-width: 25%;
+    min-width: 125px;
+    max-width: 25%;
+    text-align: center;
+
+    &__img{
+        max-width: 60%;
+        min-width: 125px;
+        padding: 0;
+    }
+
+    &__Lakers1 {
+        background-color: $lakers-pri;
+        padding: 0.5rem;
+    }
+    &__Lakers2 {
+        background-color: $lakers-sec;
+        color: $lakers-pri !important;
+        padding: 0.5rem;
+        border-radius: 25px;
+    }
+    &__Heat1 {
+        background-color: $heat-pri;
+        padding: 0.5rem;
+    }
+    &__Heat2 {
+        background-color: $heat-sec;
+        padding: 0.5rem;
+        color: $heat-pri !important;
+        border-radius: 25px;
+    }
+    &__Raptors1 {
+        background-color: $raptors-pri;
+        padding: 0.5rem;
+    }
+    &__Raptors2 {
+        background-color: $raptors-sec;
+        padding: 0.5rem;
+        color: $raptors-pri !important;
+        border-radius: 25px;
+    }
+    &__Rockets1 {
+        background-color: $rockets-pri;
+        padding: 0.5rem;
+    }
+    &__Rockets2 {
+        background-color: $rockets-sec;
+        padding: 0.5rem;
+        color: $rockets-pri !important;
+        border-radius: 25px;
+
+    }
+
+    &__stat:hover {
+        cursor: pointer;
+    }
+
+    &__stat:hover > #tooltip {
+        display: block;
+    }
+
+    &__name:hover > .playertip {
+        display: block !important;
+    }
+
+}
+
+
+#tooltip {
+    display: none;
+}
+
+.playertip {
+    display: none !important;
+    background-color: blue !important;
+    color: white !important;
+    border-radius: 25px !important;
+}
+
+
+
+
+.player1Card h4 {
+    margin: 0;
+}
+.player2Card h4 {
+    margin: 0;
+}
+
+
 .playCard1:hover{
     cursor: pointer
 } 

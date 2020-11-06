@@ -12,7 +12,7 @@ import JaValeMcGee from "./Lakers/JaValeMcGee.png";
 import KentaviousCaldwellPope from "./Lakers/KentaviousCaldwellPope.png";
 import KostasAntetokounmpo from "./Lakers/KostasAntetokounmpo.png";
 import KyleKuzma from "./Lakers/KyleKuzma.png";
-import LebronJames from "./Lakers/LeBronJames.png";
+import LeBronJames from "./Lakers/LeBronJames.png";
 import MarkieffMorris from "./Lakers/MarkieffMorris.png";
 import QuinnCook from "./Lakers/QuinnCook.png";
 import RajonRondo from "./Lakers/RajonRondo.png";
@@ -96,7 +96,7 @@ export default {
   KentaviousCaldwellPope,
   KostasAntetokounmpo,
   KyleKuzma,
-  LebronJames,
+  LeBronJames,
   MarkieffMorris,
   QuinnCook,
   RajonRondo,

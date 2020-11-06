@@ -32,18 +32,19 @@
     /* left:45%; */
     /* height: 500px; */
   }
+
   .player1Card{
-    right: 5%
-  }
-  .player1Card{
-    top: 50%;
-    margin-top: 10px;
-  }
-  
-  .player2Card{
     top: 7%;
     margin-bottom: 10px;
   }
+  .player2Card{
+    right: 5%;
+    top: 50%;
+    margin-top: 10px;
+  }
+
+  
+
 
   .scoreboard{
     position: absolute;

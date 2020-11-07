@@ -10,7 +10,8 @@ import Selection from "./pages/Selection/Selection";
 import Login from "./pages/Login";
 import API from "./utils/API";
 import SignUp from "./pages/Signup";
-import Header from "./components/HeaderText/header";
+import Header from "./components/Header";
+import "./App.css";
 
 const UserContext = createContext(null);
 
@@ -27,25 +28,15 @@ function App() {
       <Header />
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signUp">
-            <SignUp />
-          </Route>
-          <Route exact path="/selection">
-            <Selection />
-          </Route>
+          <Route exact path={["/", "/login"]} component={Login} />
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/selection" component={Selection} />
           <Route exact path="/play/:session">
             <Play />
           </Route>
         </Switch>
       </BrowserRouter>
-    // </ProvideAuth>
-    // </UserContext.Provider>
+    </UserContext.Provider>
   );
 }
 

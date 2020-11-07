@@ -5,10 +5,14 @@ const Heat = require("./seeds/seedHeat");
 const Raptors = require("./seeds/seedRaptors");
 
 const seedBomb = function () {
-  return Promise.all([
-    Lakers(), Rockets(), Heat(), Raptors(),
-  ]).then(() => {
-    console.log("Seeded successfully");
+  db.sequelize.sync({ force: true }).then(() => {
+    return Promise.all([
+      Lakers(), Rockets(), Heat(), Raptors(),
+    ])
+  }).then(() => {
+    console.log("Seeds planted");
+  }).catch((error) => {
+    if (error) throw error;
   });
 };
 

@@ -24,7 +24,6 @@ router.post("/signup", async (req, res) => {
     password: req.body.password,
   })
     .then(() => {
-      console.log("test");
       // res.redirect(307, "/api/login");
       res.json(req.user);
     })

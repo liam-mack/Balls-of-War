@@ -1,5 +1,8 @@
 node_modules
 scripts/seeds
 models/index.js
-config/config.js
+config.js
 .env
+build
+/seeders
+seeds

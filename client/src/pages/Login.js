@@ -1,48 +1,42 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
+import { loginUser, useAuthDispatch, useAuthState } from "../context";
 import API from "../utils/API";
 import "./home.css";
 
 function Login() {
   const [alert, setAlert] = useState();
   const [passwordShown, setPasswordShown] = useState(false);
-  const [userInput, setUserInput] = useState({
-    email: "",
-    password: "",
-  });
+  // const [userInput, setUserInput] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const handleChange = (event) => {
-    setUserInput({
-      ...userInput,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const dispatch = useAuthDispatch();
+  const history = useHistory();
+  const { loading, errorMessage } = useAuthState()
 
-  const handleClick = async (event) => {
+    const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const res = await API.login(userInput);
-      console.log(res);
-      // setAlert(`${event.currentTarget.name} successful!`);
-      // setInterval(() => , 3000);
-      return <Redirect to="/selection" />;
+      const res = await loginUser(dispatch, { email, password })
+      if (!res.email) {
+        return 
+      }
+      history.push("/selection");
     } catch (error) {
-      setAlert(`Sorry, ${event.target.name} request unsuccessful. Please try again!`);
       console.log(error);
-      // setInterval(() => <Redirect to="/selection" />, 3000);
-      return false;
     }
   };
-
-  // const history = useHistory();
-
+  
   function redirect(e) {
     e.preventDefault();
-    console.log("test");
-    return <Redirect to="/signup" />;
+    history.push("/signup");
   }
-
+  
   const toggleVis = () => {
     setPasswordShown(passwordShown ? false : true);
   };
@@ -53,23 +47,24 @@ function Login() {
         <div>
           <label htmlFor="email">
             Email:
-            <input type="text" name="email" onChange={handleChange} placeholder="Email" required />
+            <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
           </label>
         </div>
         <div>
           <label htmlFor="password">
             Password:
-            <input
+            <input 
               type={passwordShown ? "text" : "password"}
               name="password"
-              onChange={handleChange}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
               required
-            />
+              />
             <i className="fas fa-eye" onClick={toggleVis} />
           </label>
           <div>
-            <button name="login" id="loginBtn" type="submit" onClick={handleClick}>Log In</button>
+            <button name="login" id="loginBtn" type="submit" onClick={handleLogin}>Log In</button>
             <button name="signup" id="signupBtn" type="button" onClick={redirect}>Sign Up</button>
           </div>
         </div>
@@ -80,3 +75,10 @@ function Login() {
 }
 
 export default Login;
+
+// const handleChange = (event) => {
+//   setUserInput({
+//     ...userInput,
+//     [event.target.name]: event.target.value,
+//   });
+// };

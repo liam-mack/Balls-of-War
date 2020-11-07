@@ -7,11 +7,10 @@ import {
 } from "react-router-dom";
 import Play from "./pages/Play";
 import Selection from "./pages/Selection/Selection";
-import Home from "./pages/Home";
-// import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import API from "./utils/API";
-import "./App.css";
+import SignUp from "./pages/Signup";
+import Header from "./components/HeaderText/header";
 
 const UserContext = createContext(null);
 
@@ -24,29 +23,26 @@ function App() {
   }, []);
 
   return (
-    // <UserContext.Provider value={{ user, setUser }}>
-    // <ProvideAuth>
+    <UserContext.Provider value={{ user, setUser }}>
+      <Header />
       <BrowserRouter>
-        {/* <div> */}
-          {/* <AuthButton /> */}
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login">
-              <Selection />
-            </Route>
-            <Route exact path="/signup" component = {Signup} />
-            <Route exact path="/selection" component={Selection} />
-            {/* <PrivateRoute path="/selection">
-              <Selection />
-            </PrivateRoute> */}
-            <Route exact path="/play/:session">
-              <Play />
-            </Route>
-            {/* <Route>
-              <Redirect to="/" />
-            </Route> */}
-          </Switch>
-        {/* </div> */}
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signUp">
+            <SignUp />
+          </Route>
+          <Route exact path="/selection">
+            <Selection />
+          </Route>
+          <Route exact path="/play/:session">
+            <Play />
+          </Route>
+        </Switch>
       </BrowserRouter>
     // </ProvideAuth>
     // </UserContext.Provider>

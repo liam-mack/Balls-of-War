@@ -32,27 +32,22 @@
     /* left:45%; */
     /* height: 500px; */
   }
+
   .player1Card{
-    right: 5%
-  }
-  .player1Card{
-    top: 50%;
+    left: 25%;
+    top: 10%;
     margin-top: 10px;
   }
   
   .player2Card{
-    top: 7%;
+    right: 25%;
+    top: 10%;
     margin-bottom: 10px;
   }
 
-  .scoreboard{
-    position: absolute;
-    bottom: 5%;
-    left: 40%
-    /* background-color: blue; */
-    /* color: white; */
-  }
-
+body {
+  margin: 0;
+}
 /* Team Colors */
 .Lakers {
   /* background: linear-gradient(gold, purple); */

@@ -3,9 +3,10 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Play from "./pages/Play";
 import Selection from "./pages/Selection/Selection";
-import Home from "./pages/Home";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 import API from "./utils/API";
+import SignUp from "./pages/Signup";
+import Header from "./components/HeaderText/header";
 
 const UserContext = createContext(null);
 
@@ -19,13 +20,17 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
+      <Header />
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Login />
           </Route>
           <Route exact path="/login">
-            <Selection />
+            <Login />
+          </Route>
+          <Route exact path="/signUp">
+            <SignUp />
           </Route>
           <Route exact path="/selection">
             <Selection />

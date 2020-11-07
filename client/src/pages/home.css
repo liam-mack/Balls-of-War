@@ -1,9 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 #loginForm{
     position: absolute;
     width: 450px;
     height: 250px;
     z-index: 15;
-    top: 35%;
+    top: 45%;
     left: 45%;
     margin: -100px 0 0 -150px;
     background: white;
@@ -11,9 +14,9 @@
     text-align: center;
 }
 
-label[for=emailLogin]{
+label[for=email]{
     text-align: center;
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 input[type=text]{
@@ -46,6 +49,32 @@ input[type=password]{
     margin-left: 35px;
 }
 
-button[type=submit]{
-    
+#lTitle{
+    letter-spacing: 10px;
+    color: rgb(255, 166, 0);
+    font-size: 35px;
+    font-family: 'Merriweather', serif;
+}
+
+#sTitle{
+    letter-spacing: 5px;
+    color: rgb(255, 166, 0);
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#introTitle{
+    position: absolute;
+    top: 10%;
+    left: 45%;
+}
+
+.fa-eye{
+    position: absolute;
+    top: 55%;
+    right: 16%;
+}
+.fa-eye:hover{
+    color: #fc8f00;
+    cursor: pointer;
 }

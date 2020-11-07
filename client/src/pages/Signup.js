@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import API from "../utils/API";
 import "./home.css";
 
-function Home() {
+function SignUp() {
   const [alert, setAlert] = useState();
   const [userInput, setUserInput] = useState({
     email: "",
@@ -20,7 +20,7 @@ function Home() {
   const handleClick = async (event) => {
     event.preventDefault();
     try {
-      const res = await API[event.target.name](userInput);
+      const res = await API.signup(userInput);
       console.log(res);
       // setAlert(`${event.currentTarget.name} successful!`);
       // setInterval(() => , 3000);
@@ -36,7 +36,7 @@ function Home() {
   return (
     <>
       <form id="loginForm">
-        <h1>Balls of War</h1>
+        <h1 id="sTitle">SignUp!</h1>
         <div>
           <label htmlFor="email">
             Email:
@@ -49,8 +49,7 @@ function Home() {
             <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
           </label>
           <div>
-            <button name="login" id="loginBtn" type="submit" onClick={handleClick}>Log In</button>
-            <button name="signup" id="signupBtn" type="submit" onClick={handleClick}>Sign Up</button>
+            <button name="signup" id="signupBtn" type="button" onClick={handleClick}>Sign Up</button>
           </div>
         </div>
         {alert && <h5>{alert}</h5>}
@@ -59,4 +58,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default SignUp;

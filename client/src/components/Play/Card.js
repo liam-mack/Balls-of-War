@@ -8,7 +8,7 @@ function Card ({ name, position, jersey, height, weight, points, fieldgoal, rebo
   photoUrl = (photoUrl.replace(/\./g,''));
   photoUrl = (photoUrl.replace(/\-/g,''));
 
-    return (player === "player1" ? (
+    return (onClick ? (
       
       <div className={ `${player}Card ${team}CardHome`}>
         <h4 className={`${player}Card__name`}>{ name } <div className={`playertip ${team}tip`}>{`#${jersey} ${team}, ${position}`}</div></h4>

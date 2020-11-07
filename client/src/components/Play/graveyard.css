@@ -1,19 +1,20 @@
 .player1Grave, .player2Grave{
-    background: url("../../images/graveyard/graveyard.png");
+    background-color: #ffebcd;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 150px;
-    height: 150px;
+    height: 200px;
     z-index: 1;
     position: absolute;
+    border-radius: 25px;
 }
 
 .player1Grave{
-    top: 55%;
-    left: 14%
+    top: 65%;
+    left: 3%
 }
 .player2Grave{
-    /* top: -%; */
-    right: 14%;
+    top: 5%;
+    right: 3%;
 }

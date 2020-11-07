@@ -32,7 +32,6 @@ function Play() {
 
   return (
     <>
-      <h1>Game Page</h1>
       {game && (
         <>
           {game.player1.grave.length > 0 && <Graveyard className="player1" />}

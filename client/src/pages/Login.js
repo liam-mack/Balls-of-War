@@ -37,9 +37,10 @@ function Login() {
 
   // const history = useHistory();
 
-  function redirect() {
-    // e.preventDefault();
-    <Redirect to="/signUp" />;
+  function redirect(e) {
+    e.preventDefault();
+    console.log("test");
+    return <Redirect to="/signup" />;
   }
 
   const toggleVis = () => {
@@ -69,7 +70,7 @@ function Login() {
           </label>
           <div>
             <button name="login" id="loginBtn" type="submit" onClick={handleClick}>Log In</button>
-            <button name="signup" id="signupBtn" type="submit" onClick={redirect}>Sign Up</button>
+            <button name="signup" id="signupBtn" type="button" onClick={redirect}>Sign Up</button>
           </div>
         </div>
         {alert && <h5>{alert}</h5>}

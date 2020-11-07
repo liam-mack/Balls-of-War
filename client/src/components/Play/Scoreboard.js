@@ -43,7 +43,7 @@ export default function Scoreboard({ gameState }) {
         {console.log(gameState)}
          Bench: {gameState.player1.deck.length}
           <img alt="homeLogo" src={homeLogo} className="scoreboard__logo" />
-          Pos: <img id="possession"src={gameState.turn ? `${homeLogo}` : `${awayLogo}`}></img>
+          Turn: <img id="possession"src={gameState.turn ? `${homeLogo}` : `${awayLogo}`}></img>
           <img alt="awayLogo" src={awayLogo} className="scoreboard__logo" />
           Away Bench: {gameState.player2.deck.length}
         </div>

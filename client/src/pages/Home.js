@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import "./home.css";
 
 function Home() {
+  const history = useHistory();
   const [alert, setAlert] = useState();
   const [userInput, setUserInput] = useState({
     email: "",
@@ -24,7 +25,8 @@ function Home() {
       console.log(res);
       // setAlert(`${event.currentTarget.name} successful!`);
       // setInterval(() => , 3000);
-      return <Redirect to="/selection" />;
+      // return <Redirect to="/selection" />;
+      return history.push("/selection");
     } catch (error) {
       setAlert(`Sorry, ${event.target.name} request unsuccessful. Please try again!`);
       console.log(error);

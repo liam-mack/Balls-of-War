@@ -5,11 +5,9 @@ export default {
     return axios.get("/auth");
   },
   async signup(data) {
-    console.log("signup");
     return axios.post("/auth/signup", data);
   },
   async login(data) {
-    console.log("login");
     return axios.post("/auth/login", data);
   },
 

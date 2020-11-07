@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
   // If the user isn't logged in, redirect them to the login page
   console.log("not logged in");
   // return res.redirect("/");
-  return res.json({
+  return res.status(401).json({
     errors: [
       {
         msg: "Not logged in",

@@ -11,7 +11,7 @@ router.post("/login", passport.authenticate("local"), async (req, res) => {
   // Sending back a password, even a hashed password, isn't a good idea
   res.json({
     email: req.user.email,
-    // id: req.user.id,
+    id: req.user.id,
   });
 });
 
@@ -19,6 +19,8 @@ router.post("/login", passport.authenticate("local"), async (req, res) => {
 // thanks to how we configured our Sequelize User Model.
 // If the user is created successfully, proceed to log the user in otherwise send back an error
 router.post("/signup", async (req, res) => {
+  console.log("signup");
+  console.log(req.body);
   db.User.create({
     email: req.body.email,
     password: req.body.password,
@@ -41,7 +43,7 @@ router.post("/signup", async (req, res) => {
     });
 });
 
-router.get("/", isAuthenticated, async (req, res) => {
+router.get("/user", isAuthenticated, async (req, res) => {
   res.json(req.user);
 });
 

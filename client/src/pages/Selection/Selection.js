@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/no-array-index-key */
-import React, { useState } from "react";
+/* eslint-disable */
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import "./selection.css";
@@ -8,15 +7,22 @@ import "./selection.css";
 function Selection() {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
+  const teams = ["lakers", "heat", "raptors", "rockets"];
+  let history = useHistory();
+
   const onChange = function (event) {
     event.target.name === "player1" ? setPlayer1(event.target.value) : setPlayer2(event.target.value);
   };
 
-  const teams = ["lakers", "heat", "raptors", "rockets"];
-  const history = useHistory();
+  useEffect(async () => {
+    await API.checkUser().then((res) => {
+      history.push(`/play/${res.data._id}`)
+    })
+  }, []);
 
   async function redirect() {
     await API.createGame({ player1, player2 }).then((res) => {
+      console.log(res);
       history.push(`/play/${res.data}`);
     });
   }

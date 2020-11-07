@@ -2,18 +2,20 @@ import axios from "axios";
 
 export default {
   async getUser() {
-    return axios.get("/auth");
+    return axios.get("/user");
   },
+
   async signup(data) {
     return axios.post("/auth/signup", data);
-  },
-  async login(data) {
-    return axios.post("/auth/login", data);
   },
 
   // Create game
   async createGame(players) {
     return axios.post("api/game/create", players);
+  },
+  // Check active game
+  async checkUser() {
+    return axios.get("/api/game/check");
   },
   // Get game id
   async getGame(id) {

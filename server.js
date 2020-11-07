@@ -67,3 +67,5 @@ db.sequelize.sync().then(() => {
 }).catch((error) => {
   if (error) throw error;
 });
+
+// { force: true }

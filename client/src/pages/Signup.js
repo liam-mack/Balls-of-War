@@ -1,4 +1,6 @@
+/* eslint-disable */
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import "./home.css";
 
@@ -8,7 +10,7 @@ function SignUp() {
     email: "",
     password: "",
   });
-
+  const history = useHistory();
   const handleChange = (event) => {
     setUserInput({
       ...userInput,
@@ -21,11 +23,7 @@ function SignUp() {
     try {
       console.log(userInput);
       const res = await API.signup(userInput);
-      console.log(res);
-      return res;
-      // setAlert(`${event.currentTarget.name} successful!`);
-      // setInterval(() => , 3000);
-      // return <Redirect to="/selection" />;
+      return history.push("/login");
       // return history.push("/selection");
     } catch (error) {
       setAlert(`Sorry, ${event.target.name} request unsuccessful. Please try again!`);

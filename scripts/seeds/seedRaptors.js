@@ -1,3 +1,4 @@
+/* eslint-disable */
 const db = require("../../models");
 
 module.exports = async function() {
@@ -13,8 +14,7 @@ module.exports = async function() {
       "jersey": 7,
       "position": "PG",
       "height": "6'0",
-      "weight": 196,
-      "image": ""
+      "weight": 196
     },
     {
       "name": "Fred VanVleet",
@@ -27,8 +27,7 @@ module.exports = async function() {
       "jersey": 23,
       "position": "PG",
       "height": "6'1",
-      "weight": 197,
-      "image": ""
+      "weight": 197
     },
     {
       "name": "Pascal Siakam",
@@ -41,8 +40,7 @@ module.exports = async function() {
       "jersey": 43,
       "position": "PF",
       "height": "6'9",
-      "weight": 230,
-      "image": ""
+      "weight": 230
     },
     {
       "name": "OG Anunoby",
@@ -55,8 +53,7 @@ module.exports = async function() {
       "jersey": 3,
       "position": "SF",
       "height": "6'7",
-      "weight": 232,
-      "image": ""
+      "weight": 232
     },
     {
       "name": "Norman Powell",
@@ -69,8 +66,7 @@ module.exports = async function() {
       "jersey": 24,
       "position": "SG",
       "height": "6'3",
-      "weight": 215,
-      "image": ""
+      "weight": 215
     },
     {
       "name": "Serge Ibaka",
@@ -83,8 +79,7 @@ module.exports = async function() {
       "jersey": 9,
       "position": "C",
       "height": "7'0",
-      "weight": 235,
-      "image": ""
+      "weight": 235
     },
     {
       "name": "Marc Gasol",
@@ -97,8 +92,7 @@ module.exports = async function() {
       "jersey": 33,
       "position": "C",
       "height": "6'11",
-      "weight": 255,
-      "image": ""
+      "weight": 255
     },
     {
       "name": "Patrick McCaw",
@@ -111,8 +105,7 @@ module.exports = async function() {
       "jersey": 22,
       "position": "SF",
       "height": "6'7",
-      "weight": 181,
-      "image": ""
+      "weight": 181
     },
     {
       "name": "Rondae Hollis-Jefferson",
@@ -125,8 +118,7 @@ module.exports = async function() {
       "jersey": 4,
       "position": "SF",
       "height": "6'6",
-      "weight": 217,
-      "image": ""
+      "weight": 217
     },
     {
       "name": "Terence Davis",
@@ -139,8 +131,7 @@ module.exports = async function() {
       "jersey": 0,
       "position": "SG",
       "height": "6'4",
-      "weight": 201,
-      "image": ""
+      "weight": 201
     },
     {
       "name": "Chris Boucher",
@@ -153,8 +144,7 @@ module.exports = async function() {
       "jersey": 25,
       "position": "PF",
       "height": "6'9",
-      "weight": 200,
-      "image": ""
+      "weight": 200
     },
     {
       "name": "Matt Thomas",
@@ -167,8 +157,7 @@ module.exports = async function() {
       "jersey": 21,
       "position": "SG",
       "height": "6'4",
-      "weight": 190,
-      "image": ""
+      "weight": 190
     },
     {
       "name": "Paul Watson",
@@ -181,8 +170,7 @@ module.exports = async function() {
       "jersey": 1,
       "position": "SF",
       "height": "6'7",
-      "weight": 215,
-      "image": ""
+      "weight": 215
     },
     {
       "name": "Oshae Brissett",
@@ -195,8 +183,7 @@ module.exports = async function() {
       "jersey": 12,
       "position": "SF",
       "height": "6'7",
-      "weight": 210,
-      "image": ""
+      "weight": 210
     },
     {
       "name": "Stanley Johnson",
@@ -209,8 +196,7 @@ module.exports = async function() {
       "jersey": 5,
       "position": "PF",
       "height": "6'6",
-      "weight": 242,
-      "image": ""
+      "weight": 242
     },
     {
       "name": "Malcolm Miller",
@@ -223,8 +209,7 @@ module.exports = async function() {
       "jersey": 13,
       "position": "SF",
       "height": "6'7",
-      "weight": 210,
-      "image": ""
+      "weight": 210
     },
     {
       "name": "Dewan Hernandez",
@@ -237,8 +222,7 @@ module.exports = async function() {
       "jersey": 20,
       "position": "C",
       "height": "6'10",
-      "weight": 235,
-      "image": ""
+      "weight": 235
     }
   ])
 }

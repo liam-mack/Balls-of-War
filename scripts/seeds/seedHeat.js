@@ -1,3 +1,4 @@
+/* eslint-disable */
 const db = require("../../models");
 
 module.exports = async function() {
@@ -13,8 +14,7 @@ module.exports = async function() {
       "jersey": 22,
       "position": "SF",
       "height": "6'7",
-      "weight": 230,
-      "image": ""
+      "weight": 230
     },
     {
       "name": "Bam Adebayo",
@@ -27,8 +27,7 @@ module.exports = async function() {
       "jersey": 13,
       "position": "PF",
       "height": "6'9",
-      "weight": 255,
-      "image": ""
+      "weight": 255
     },
     {
       "name": "Justise Winslow",
@@ -41,8 +40,7 @@ module.exports = async function() {
       "jersey": 20,
       "position": "PF",
       "height": "6'6",
-      "weight": 222,
-      "image": ""
+      "weight": 222
     },
     {
       "name": "Duncan Robinson",
@@ -55,8 +53,7 @@ module.exports = async function() {
       "jersey": 55,
       "position": "SG",
       "height": "6'7",
-      "weight": 215,
-      "image": ""
+      "weight": 215
     },
     {
       "name": "Kendrick Nunn",
@@ -69,8 +66,7 @@ module.exports = async function() {
       "jersey": 25,
       "position": "SG",
       "height": "6'2",
-      "weight": 190,
-      "image": ""
+      "weight": 190
     },
     {
       "name": "Goran Dragic",
@@ -83,8 +79,7 @@ module.exports = async function() {
       "jersey": 7,
       "position": "PG",
       "height": "6'3",
-      "weight": 190,
-      "image": ""
+      "weight": 190
     },
     {
       "name": "Jae Crowder",
@@ -97,8 +92,7 @@ module.exports = async function() {
       "jersey": 99,
       "position": "SF",
       "height": "6'7",
-      "weight": 235,
-      "image": ""
+      "weight": 235
     },
     {
       "name": "Tyler Herro",
@@ -111,8 +105,7 @@ module.exports = async function() {
       "jersey": 14,
       "position": "SG",
       "height": "6'5",
-      "weight": 195,
-      "image": ""
+      "weight": 195
     },
     {
       "name": "Derrick Jones",
@@ -125,8 +118,7 @@ module.exports = async function() {
       "jersey": 5,
       "position": "SF",
       "height": "6'6",
-      "weight": 210,
-      "image": ""
+      "weight": 210
     },
     {
       "name": "Meyers Leonard",
@@ -139,8 +131,7 @@ module.exports = async function() {
       "jersey": 0,
       "position": "C",
       "height": "7'0",
-      "weight": 260,
-      "image": ""
+      "weight": 260
     },
     {
       "name": "Andre Iguodala",
@@ -153,8 +144,7 @@ module.exports = async function() {
       "jersey": 28,
       "position": "SG",
       "height": "6'7",
-      "weight": 215,
-      "image": ""
+      "weight": 215
     },
     {
       "name": "Kelly Olynyk",
@@ -167,8 +157,7 @@ module.exports = async function() {
       "jersey": 9,
       "position": "C",
       "height": "6'11",
-      "weight": 240,
-      "image": ""
+      "weight": 240
     },
     {
       "name": "Solomon Hill",
@@ -181,8 +170,7 @@ module.exports = async function() {
       "jersey": 44,
       "position": "SF",
       "height": "6'6",
-      "weight": 226,
-      "image": ""
+      "weight": 226
     },
     {
       "name": "James Johnson",
@@ -195,8 +183,7 @@ module.exports = async function() {
       "jersey": 16,
       "position": "SF",
       "height": "6'7",
-      "weight": 240,
-      "image": ""
+      "weight": 240
     },
     {
       "name": "Dion Waiters",
@@ -209,8 +196,7 @@ module.exports = async function() {
       "jersey": 11,
       "position": "SG",
       "height": "6'3",
-      "weight": 210,
-      "image": ""
+      "weight": 210
     },
     {
       "name": "Udonis Haslem",
@@ -223,8 +209,7 @@ module.exports = async function() {
       "jersey": 40,
       "position": "PF",
       "height": "6'8",
-      "weight": 235,
-      "image": ""
+      "weight": 235
     },
     {
       "name": "Gabe Vincent",
@@ -237,8 +222,7 @@ module.exports = async function() {
       "jersey": 2,
       "position": "PG",
       "height": "6'3",
-      "weight": 200,
-      "image": ""
+      "weight": 200
     },
     {
       "name": "Chris Silva",
@@ -251,8 +235,7 @@ module.exports = async function() {
       "jersey": 30,
       "position": "PF",
       "height": "6'8",
-      "weight": 234,
-      "image": ""
+      "weight": 234
     },
     {
       "name": "Kyle Alexander",
@@ -265,8 +248,7 @@ module.exports = async function() {
       "jersey": 17,
       "position": "PF",
       "height": "6'11",
-      "weight": 220,
-      "image": ""
+      "weight": 220
     },
     {
       "name": "KZ Okpala",
@@ -279,8 +261,7 @@ module.exports = async function() {
       "jersey": 4,
       "position": "SF",
       "height": "6'8",
-      "weight": 215,
-      "image": ""
+      "weight": 215
     }
   ])
 }

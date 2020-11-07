@@ -80,11 +80,6 @@ module.exports = function (sequelize, DataTypes) {
           return rawValue ? Math.ceil(rawValue) * 10 : null;
         },
       },
-      image: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: null,
-      },
     },
     { timestamps: false },
   );

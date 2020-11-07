@@ -1,3 +1,4 @@
+/* eslint-disable */
 const db = require("../../models");
 
 module.exports = async function() {
@@ -13,8 +14,7 @@ module.exports = async function() {
       "rebounds": 2.1,
       "assists": 1.6,
       "personalfouls": 1.9,
-      "turnovers": 0.9,
-      "image": ""
+      "turnovers": 0.9
     },
     {
       "name": "Dwight Howard",
@@ -27,8 +27,7 @@ module.exports = async function() {
       "rebounds": 7.3,
       "assists": 0.7,
       "personalfouls": 3.2,
-      "turnovers": 1.2,
-      "image": ""
+      "turnovers": 1.2
     },
     {
       "name": "Danny Green",
@@ -41,8 +40,7 @@ module.exports = async function() {
       "rebounds": 3.3,
       "assists": 1.3,
       "personalfouls": 2.3,
-      "turnovers": 0.9,
-      "image": ""
+      "turnovers": 0.9
     },
     {
       "name": "JaVale McGee",
@@ -55,22 +53,20 @@ module.exports = async function() {
       "rebounds": 5.7,
       "assists": 0.5,
       "personalfouls": 1.8,
-      "turnovers": 0.8,
-      "image": ""
+      "turnovers": 0.8
     },
     {
       "name": "LeBron James",
       "position": "PG",
       "jersey": 23,
-      "height": "6'0",
+      "height": "6'9",
       "weight": 250,
       "fieldgoal": 0.493,
       "points": 25.3,
       "rebounds": 7.8,
       "assists": 10.2,
       "personalfouls": 1.5,
-      "turnovers": 3.9,
-      "image": ""
+      "turnovers": 3.9
     },
     {
       "name": "Alex Caruso",
@@ -83,8 +79,7 @@ module.exports = async function() {
       "rebounds": 1.9,
       "assists": 1.9,
       "personalfouls": 2.5,
-      "turnovers": 0.8,
-      "image": ""
+      "turnovers": 0.8
     },
     {
       "name": "Anthony Davis",
@@ -97,8 +92,7 @@ module.exports = async function() {
       "rebounds": 9.3,
       "assists": 3.2,
       "personalfouls": 2.1,
-      "turnovers": 2.5,
-      "image": ""
+      "turnovers": 2.5
     },
     {
       "name": "Kyle Kuzma",
@@ -111,8 +105,7 @@ module.exports = async function() {
       "rebounds": 4.5,
       "assists": 1.3,
       "personalfouls": 2.2,
-      "turnovers": 1.5,
-      "image": ""
+      "turnovers": 1.5
     },
     {
       "name": "Avery Bradley",
@@ -125,8 +118,7 @@ module.exports = async function() {
       "rebounds": 2.3,
       "assists": 1.3,
       "personalfouls": 1.2,
-      "turnovers": 1,
-      "image": ""
+      "turnovers": 1
     },
     {
       "name": "Rajon Rondo",
@@ -139,8 +131,7 @@ module.exports = async function() {
       "rebounds": 3,
       "assists": 5,
       "personalfouls": 0.9,
-      "turnovers": 1.9,
-      "image": ""
+      "turnovers": 1.9
     },
     {
       "name": "Jared Dudley",
@@ -153,8 +144,7 @@ module.exports = async function() {
       "rebounds": 1.2,
       "assists": 0.6,
       "personalfouls": 0.6,
-      "turnovers": 0.2,
-      "image": ""
+      "turnovers": 0.2
     },
     {
       "name": "Quinn Cook",
@@ -167,8 +157,7 @@ module.exports = async function() {
       "rebounds": 1.2,
       "assists": 1.1,
       "personalfouls": 2.1,
-      "turnovers": 0.8,
-      "image": ""
+      "turnovers": 0.8
     },
     {
       "name": "Markieff Morris",
@@ -181,8 +170,7 @@ module.exports = async function() {
       "rebounds": 3.2,
       "assists": 0.6,
       "personalfouls": 2.3,
-      "turnovers": 0.4,
-      "image": ""
+      "turnovers": 0.4
     },
     {
       "name": "Dion Waiters",
@@ -195,8 +183,7 @@ module.exports = async function() {
       "rebounds": 1.9,
       "assists": 2.4,
       "personalfouls": 1.7,
-      "turnovers": 1.9,
-      "image": ""
+      "turnovers": 1.9
     },
     {
       "name": "Talen Horton-Tucker",
@@ -209,8 +196,7 @@ module.exports = async function() {
       "rebounds": 1.2,
       "assists": 1,
       "personalfouls": 0.8,
-      "turnovers": 1,
-      "image": ""
+      "turnovers": 1
     },
     {
       "name": "J.R. Smith",
@@ -223,8 +209,7 @@ module.exports = async function() {
       "rebounds": 0.8,
       "assists": 0.5,
       "personalfouls": 0.4,
-      "turnovers": 0.7,
-      "image": ""
+      "turnovers": 0.7
     },
     {
       "name": "Kostas Antetokounmpo",
@@ -237,8 +222,7 @@ module.exports = async function() {
       "rebounds": 0.6,
       "assists": 0.4,
       "personalfouls": 0,
-      "turnovers": 0.2,
-      "image": ""
+      "turnovers": 0.2
     },
     {
       "name": "Devontae Cacok",
@@ -251,8 +235,7 @@ module.exports = async function() {
       "rebounds": 5,
       "assists": 1,
       "personalfouls": 0.7,
-      "turnovers": 0,
-      "image": ""
+      "turnovers": 0
     },
     {
       "name": "Troy Daniels",
@@ -265,8 +248,7 @@ module.exports = async function() {
       "rebounds": 1.1,
       "assists": 0.3,
       "personalfouls": 0,
-      "turnovers": 0.2,
-      "image": ""
+      "turnovers": 0.2
     }
   ])
 }

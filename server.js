@@ -1,12 +1,12 @@
 const express = require("express");
 const session = require("express-session");
+const MemoryStore = require("memorystore")(session);
 const compression = require("compression");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const path = require("path");
 const passport = require("./config/passport");
 const db = require("./models");
-// const SeedBomb = require("./scripts/seedBomb");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -18,7 +18,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "where is hunter", resave: true, saveUninitialized: true }));
+app.use(session({
+  cookie: { maxAge: 86400000 },
+  store: new MemoryStore({
+    checkPeriod: 86400000, // prune expired entries every 24h
+  }),
+  secret: "where is hunter",
+  resave: true,
+  saveUninitialized: true,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -59,7 +67,3 @@ db.sequelize.sync().then(() => {
 }).catch((error) => {
   if (error) throw error;
 });
-
-// { force: true }
-// return SeedBomb();
-// }).then(() => {

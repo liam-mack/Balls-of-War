@@ -35,14 +35,14 @@
 
   .player1Card{
     left: 25%;
-    top: 10%;
-    margin-top: 10px;
+    top: 15%;
+    /* margin-top: 10px; */
   }
   
   .player2Card{
     right: 25%;
-    top: 10%;
-    margin-bottom: 10px;
+    top: 15%;
+    /* margin-bottom: 10px; */
   }
 
 #player1Active{

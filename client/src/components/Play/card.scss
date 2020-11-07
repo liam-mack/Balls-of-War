@@ -238,6 +238,12 @@ $rockets-sec: #C4CED4;
     margin: 0;
 }
 
+h4:active{
+    background-color: white;
+    border-radius: 25px;
+    color: black;
+}
+
 
 .playCard1:hover{
     cursor: pointer

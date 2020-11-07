@@ -7,10 +7,10 @@ src: url("../../digital-7mono.ttf");
 
 .scoreboard{
     position: absolute;
-    bottom: 5%;
+    top: 0;
     text-align: center;
     height: 100px;
-    background-color: white;
+    // background-color: white;
 
     &__logo{
         max-width: 100px;
@@ -24,7 +24,7 @@ src: url("../../digital-7mono.ttf");
         background-color: black;
         color: white;
         border-radius: 25px;
-        width: 60%;
+        width: 70%;
         font-family: digital-clock-font;
         font-size: 30px
     }

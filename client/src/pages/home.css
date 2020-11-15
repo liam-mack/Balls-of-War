@@ -32,6 +32,10 @@ input[type=password]{
     margin-left: 10px;
 }
 
+.formBtn{
+    margin-top: 10px;
+}
+
 #loginBtn{
     /* width: 100px;
     height: 40px; */

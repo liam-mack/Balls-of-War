@@ -47,7 +47,7 @@ function SignUp() {
             Password:
             <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
           </label>
-          <div>
+          <div className="formBtn">
             <button name="back" id="backBtn" type="button" onClick={() => history.push("/")}>
               <i className="fas fa-long-arrow-alt-left" /> Go Back
             </button>

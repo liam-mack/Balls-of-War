@@ -64,8 +64,11 @@ function Login() {
             <i className="fas fa-eye" onClick={toggleVis} />
           </label>
           <div>
-            <button name="login" id="loginBtn" type="submit" onClick={handleLogin}>Log In</button>
-            <button name="signup" id="signupBtn" type="button" onClick={redirect}>Sign Up</button>
+            <button name="login" id="loginBtn" type="submit" onClick={handleLogin}>
+            <i className="fas fa-door-open" /> Log In</button>
+            <button name="signup" id="signupBtn" type="button" onClick={redirect}>
+              <i className="fas fa-door-closed" /> Register
+            </button>
           </div>
         </div>
         {alert && <h5>{alert}</h5>}

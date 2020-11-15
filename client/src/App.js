@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
+
 import Header from "./components/Header";
-import "./App.css";
 import routes from "./config/routes";
 import { AuthProvider } from "./context";
 import AppRoutes from "./components/AppRoutes";
+import "./App.css";
 
 function App() {
   return (

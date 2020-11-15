@@ -24,7 +24,6 @@ export default {
   },
   // Play game with an action
   async playGame(id, method, stat) {
-    console.log(method, id, stat);
     return axios.put(`/api/game/${id}/${method}`, { stat });
   },
 };

@@ -33,29 +33,32 @@ input[type=password]{
 }
 
 #loginBtn{
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
     border-radius: 10%;
     background-color: rgb(211, 129, 22);
     margin-left: 10px;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
 #signupBtn{
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
     border-radius: 10%;
     background-color: rgb(211, 129, 22);
     margin-left: 35px;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
 #backBtn{
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
     border-radius: 10%;
     background-color: rgb(211, 129, 22);
-    font-size: 1rem;
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
 #lTitle{

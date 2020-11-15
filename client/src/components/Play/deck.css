@@ -45,13 +45,9 @@
     /* margin-bottom: 10px; */
   }
 
-#player1Active{
+.active{
   border: 5px solid yellow
 }
-#player2Active{
-  border: 5px solid yellow
-}
-
 
 body {
   margin: 0;

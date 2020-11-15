@@ -16,15 +16,14 @@ function Selection() {
 
   useEffect(async () => {
     const { data } = await API.checkUser();
-    console.log(data);
     data ? history.push(`/play/${data._id}`) : history.push("/selection");
   }, []);
 
-  async function startGame() {
+  const startGame = async () => {
     API.createGame({ player1, player2 }).then((res) => {
       history.push(`/play/${res.data}`);
     });
-  }
+  };
 
   return (
     <div className="tempCheck">

@@ -1,10 +1,9 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 #loginForm{
     position: absolute;
     width: 450px;
-    height: 250px;
+    height: 265px;
     z-index: 15;
     top: 45%;
     left: 45%;
@@ -33,20 +32,37 @@ input[type=password]{
     margin-left: 10px;
 }
 
+.formBtn{
+    margin-top: 10px;
+}
+
 #loginBtn{
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
     border-radius: 10%;
     background-color: rgb(211, 129, 22);
     margin-left: 10px;
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
 #signupBtn{
-    width: 100px;
-    height: 40px;
+    /* width: 100px;
+    height: 40px; */
     border-radius: 10%;
     background-color: rgb(211, 129, 22);
     margin-left: 35px;
+    font-size: 1.3rem;
+    padding: 10px;
+}
+
+#backBtn{
+    /* width: 100px;
+    height: 40px; */
+    border-radius: 10%;
+    background-color: rgb(211, 129, 22);
+    font-size: 1.3rem;
+    padding: 10px;
 }
 
 #lTitle{
@@ -71,8 +87,9 @@ input[type=password]{
 
 .fa-eye{
     position: absolute;
-    top: 55%;
-    right: 16%;
+    top: 52.5%;
+    right: 14%;
+
 }
 .fa-eye:hover{
     color: #fc8f00;

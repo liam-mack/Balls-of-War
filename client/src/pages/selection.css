@@ -1,3 +1,8 @@
+#intro{
+  text-align: center;
+  margin-top: 6rem;
+  }
+  
 .tempCheck input{
   appearance: none;
 }
@@ -53,22 +58,22 @@ height: 120px;
 }
 
 .lakers{
-background-image: url(../../images/Lakers.png);
+background-image: url(../images/Lakers.png);
 top: 22%;
 }
 
 .rockets{
-background-image: url(../../images/Rockets.png);
+background-image: url(../images/Rockets.png);
 top: 65%;
 
 }
 .heat{
-background-image: url(../../images/Heat.png);
+background-image: url(../images/Heat.png);
 top: 65%;
 left: 70%;
 }
 .raptors{
-background-image: url(../../images/Raptors.png);
+background-image: url(../images/Raptors.png);
 top: 20%;
 left: 66%;
 }
@@ -93,13 +98,4 @@ color: white;
 }
 #playButton:hover{
 background-image: linear-gradient(to right, blue, red);
-}
-#intro{
-text-align: center;
-margin-top: 6rem;
-}
-#versus{
-text-align: center;
-margin-top: 13rem;
-font-size: 55px;
 }

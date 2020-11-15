@@ -40,7 +40,7 @@ export default function Scoreboard({ gameState }) {
   return (
     <footer className="scoreboard">
       <div className="scoreboard__stats">
-        {console.log(gameState)}
+        {/* {console.log(gameState)} */}
          {gameState.player1.team} Bench: {gameState.player1.deck.length}
           <img alt="homeLogo" src={homeLogo} className="scoreboard__logo" />
           Turn: <img id="possession"src={gameState.turn ? `${homeLogo}` : `${awayLogo}`}></img>

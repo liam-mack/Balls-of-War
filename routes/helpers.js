@@ -20,13 +20,13 @@ const getGame = async (id) => Game.findById(id);
 
 const checkGame = async (game) => {
   const { status, player1, player2 } = game;
-
+  console.log(status, player1, player2);
   if (!status) {
     return;
   }
   if (player1 === 0) {
     console.log("needs work");
-  };
+  }
 };
 
 const setHand = async (id) => {

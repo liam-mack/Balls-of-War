@@ -245,12 +245,6 @@ h4:active{
 }
 
 
-.playCard1:hover{
+.playCard1:hover, .playCard2:hover, .stat:hover{
     cursor: pointer
 } 
-.playCard2:hover{
-    cursor: pointer
-}
-.stat:hover{
-    cursor: pointer
-}

@@ -1,14 +1,10 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from "react";
 import "./deck.css";
 
-function Deck({ id, onClick, className }) {
+function Deck({ id, deckClick, className }) {
   return (
-    onClick
-      ? <div id={id} className={className} onClick={() => onClick()} />
-      : <div id={id} className={className} />
+    <button type="button" id={id} className={className} onClick={deckClick && ((e) => deckClick(e))} />
   );
 }
 

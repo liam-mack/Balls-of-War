@@ -1,26 +1,27 @@
-/* eslint-disable */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable */ 
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../utils/API";
+import teams from "../utils/constants";
 import "./selection.css";
 
 function Selection() {
   const [player1, setPlayer1] = useState(null);
   const [player2, setPlayer2] = useState(null);
-  const teams = ["lakers", "heat", "raptors", "rockets"];
-  let history = useHistory();
+  const history = useHistory();
 
   const onChange = function (event) {
     event.target.name === "player1" ? setPlayer1(event.target.value) : setPlayer2(event.target.value);
   };
 
   useEffect(async () => {
-    await API.checkUser().then((res) => {
-      history.push(`/play/${res.data._id}`)
-    })
+    const { data } = await API.checkUser();
+    console.log(data);
+    data ? history.push(`/play/${data._id}`) : history.push("/selection");
   }, []);
 
-  async function redirect() {
+  async function startGame() {
     await API.createGame({ player1, player2 }).then((res) => {
       console.log(res);
       history.push(`/play/${res.data}`);
@@ -32,31 +33,25 @@ function Selection() {
       <h1 id="intro">Choose Your Teams</h1>
       <div className="playSelect1">
         <h2 id="playerone"> Player 1 Select: <span id="teamName">{player1}</span></h2>
-        {teams.map((team, index) => (
-          <>
-            <input key={index} id={team} type="radio" value={team} name="player1" onChange={onChange} />
-            <label className={`playerDecks ${team}`} htmlFor={team} />
-          </>
+        {teams.map((team) => (
+          <div key={`${team}One`}>
+            <input key={`${team}InputOne`} id={team} type="radio" value={team} name="player1" onChange={onChange} />
+            <label key={`${team}LabelOne`} className={`playerDecks ${team}`} htmlFor={team} />
+          </div>
         ))}
       </div>
-
-      <h1 id="versus">VS</h1>
 
       <div className="playSelect2">
         <h2 id="playertwo">Player 2 Select: <span id="teamName">{player2}</span></h2>
-        {teams.map((team, index) => (
-          <>
+        {teams.map((team) => (
+          <div key={`${team}Two`}>
             <input id={`player2 ${team}`} type="radio" value={team} name="player2" onChange={onChange} />
-            <label key={index} className={`playerDecks ${team}`} htmlFor={`player2 ${team}`} />
-          </>
+            <label className={`playerDecks ${team}`} htmlFor={`player2 ${team}`} />
+          </div>
         ))}
       </div>
 
-      <button
-        type="button"
-        id="playButton"
-        onClick={redirect}
-      >
+      <button type="button" id="playButton" onClick={startGame}>
         <span>Start</span>
       </button>
     </div>

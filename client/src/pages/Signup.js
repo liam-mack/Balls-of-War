@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import API from "../utils/API";
 import "./home.css";
 
@@ -10,6 +10,7 @@ function SignUp() {
     password: "",
   });
   const history = useHistory();
+
   const handleChange = (event) => {
     setUserInput({
       ...userInput,
@@ -19,16 +20,19 @@ function SignUp() {
 
   const handleClick = async (event) => {
     event.preventDefault();
-
+    const { email, password } = userInput;
+    if (!(email && password)) {
+      setAlert("Email and password must be filled");
+      return;
+    }
+    setAlert(null);
     try {
-      console.log(userInput);
       await API.signup(userInput);
-      return history.push("/login");
+      history.push("/");
     } catch (error) {
-      setAlert(`Sorry, ${event.target.name} request unsuccessful. Please try again!`);
       console.log(error);
-      // setInterval(() => <Redirect to="/selection" />, 3000);
-      return false;
+      setAlert("Sorry, signup request unsuccessful. Please try again!");
+      setInterval(() => setAlert(null), 3000);
     }
   };
 
@@ -47,16 +51,19 @@ function SignUp() {
             Password:
             <input type="password" name="password" onChange={handleChange} placeholder="Password" required />
           </label>
-          <div className="formBtn">
-            <button name="back" id="backBtn" type="button" onClick={() => history.push("/")}>
+        </div>
+        <div className="formBtn">
+          <Link to="/">
+            <button name="back" id="backBtn" type="button">
               <i className="fas fa-long-arrow-alt-left" /> Go Back
             </button>
-            <button name="signup" id="signupBtn" type="button" onClick={handleClick}>
-              <i className="fas fa-user-plus" /> Sign Up
-            </button>
-          </div>
+          </Link>
+          <button name="signup" id="signupBtn" type="button" onClick={handleClick}>
+            <i className="fas fa-user-plus" /> Sign Up
+          </button>
         </div>
-        {alert && <h5>{alert}</h5>}
+
+        <h5>{alert}</h5>
       </form>
     </>
   );

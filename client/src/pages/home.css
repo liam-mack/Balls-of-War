@@ -3,7 +3,7 @@
 #loginForm{
     position: absolute;
     width: 450px;
-    height: 250px;
+    height: 265px;
     z-index: 15;
     top: 45%;
     left: 45%;
@@ -87,8 +87,9 @@ input[type=password]{
 
 .fa-eye{
     position: absolute;
-    top: 55%;
-    right: 16%;
+    top: 52.5%;
+    right: 14%;
+
 }
 .fa-eye:hover{
     color: #fc8f00;

@@ -24,10 +24,9 @@ router.post("/signup", async (req, res) => {
   })
     .then(() => {
       // res.redirect(307, "/api/login");
-      res.status(307).json(req.user);
+      res.json(req.user);
     })
     .catch((err) => {
-      console.log(err.errors[0]);
       res.status(401).json({
         err,
         // errors: [

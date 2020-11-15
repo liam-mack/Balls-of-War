@@ -1,3 +1,8 @@
+#intro{
+  text-align: center;
+  margin-top: 6rem;
+  }
+  
 .tempCheck input{
   appearance: none;
 }
@@ -93,13 +98,4 @@ color: white;
 }
 #playButton:hover{
 background-image: linear-gradient(to right, blue, red);
-}
-#intro{
-text-align: center;
-margin-top: 6rem;
-}
-#versus{
-text-align: center;
-margin-top: 13rem;
-font-size: 55px;
 }

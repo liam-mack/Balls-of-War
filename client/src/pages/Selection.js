@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable */ 
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../utils/API";
@@ -22,8 +21,7 @@ function Selection() {
   }, []);
 
   async function startGame() {
-    await API.createGame({ player1, player2 }).then((res) => {
-      console.log(res);
+    API.createGame({ player1, player2 }).then((res) => {
       history.push(`/play/${res.data}`);
     });
   }
@@ -32,7 +30,7 @@ function Selection() {
     <div className="tempCheck">
       <h1 id="intro">Choose Your Teams</h1>
       <div className="playSelect1">
-        <h2 id="playerone"> Player 1 Select: <span id="teamName">{player1}</span></h2>
+        <h2 id="playerone"> Player 1: <span id="teamName">{player1}</span></h2>
         {teams.map((team) => (
           <div key={`${team}One`}>
             <input key={`${team}InputOne`} id={team} type="radio" value={team} name="player1" onChange={onChange} />
@@ -42,7 +40,7 @@ function Selection() {
       </div>
 
       <div className="playSelect2">
-        <h2 id="playertwo">Player 2 Select: <span id="teamName">{player2}</span></h2>
+        <h2 id="playertwo">Player 2: <span id="teamName">{player2}</span></h2>
         {teams.map((team) => (
           <div key={`${team}Two`}>
             <input id={`player2 ${team}`} type="radio" value={team} name="player2" onChange={onChange} />

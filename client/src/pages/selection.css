@@ -53,22 +53,22 @@ height: 120px;
 }
 
 .lakers{
-background-image: url(../../images/Lakers.png);
+background-image: url(../images/Lakers.png);
 top: 22%;
 }
 
 .rockets{
-background-image: url(../../images/Rockets.png);
+background-image: url(../images/Rockets.png);
 top: 65%;
 
 }
 .heat{
-background-image: url(../../images/Heat.png);
+background-image: url(../images/Heat.png);
 top: 65%;
 left: 70%;
 }
 .raptors{
-background-image: url(../../images/Raptors.png);
+background-image: url(../images/Raptors.png);
 top: 20%;
 left: 66%;
 }

@@ -1,8 +1,6 @@
-/* eslint-disable */
-import React from "react";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import Selection from "../pages/Selection/Selection";
+import Selection from "../pages/Selection";
 import Play from "../pages/Play";
 
 const routes = [

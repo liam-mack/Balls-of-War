@@ -8,13 +8,12 @@ const {
 router.get("/check", isAuthenticated, async (req, res) => {
   console.log(req.user);
   Game.findOne({ user: req.user.id }).then((game) => {
-    console.log(game);
     res.json(game);
   });
 });
 
 router.get("/:id", isAuthenticated, async (req, res) => {
-  await getGame(req.params.id).then((game) => {
+  getGame(req.params.id).then((game) => {
     res.json(game);
   });
 });

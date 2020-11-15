@@ -53,16 +53,16 @@ function Play() {
           {game.turn
             ? (
               <>
-                <Deck {...(game.player1.hand.length === 0 && deckClick)} id="player1" className={`active playCard1 ${game.player1.team}`} />
-                <Deck id="player2" className={`playCard2 ${game.player2.team}`} />
+                <Deck {...(game.player1.hand.length === 0 && deckClick)} id="player1" className={`active player1Deck ${game.player1.team}`} />
+                <Deck id="player2" className={`player2Deck ${game.player2.team}`} />
                 {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
                 {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
               </>
             )
             : (
               <>
-                <Deck id="player1" className={`playCard1 ${game.player1.team}`} />
-                <Deck {...(game.player2.hand.length === 0 && deckClick)} id="player2" className={`active playCard2 ${game.player2.team}`} />
+                <Deck id="player1" className={`player1Deck ${game.player1.team}`} />
+                <Deck {...(game.player2.hand.length === 0 && deckClick)} id="player2" className={`active player2Deck ${game.player2.team}`} />
                 {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
                 {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
               </>

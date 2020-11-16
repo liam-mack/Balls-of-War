@@ -1,10 +1,6 @@
-/*Game page styling*/
-body{
-  background-image:url(./images/bCourt.png) !important;
-  background-repeat: no-repeat;
-  background-size: 100% 750px;
-  min-height: 100%; 
-  background-color: #ffffff	
+body, #root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
-  
- 

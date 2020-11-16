@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const db = require("../models");
 const Game = require("../models/game.js");
 
@@ -19,8 +20,8 @@ const getDeck = async (team) => {
 const getGame = async (id) => Game.findById(id);
 
 const checkGame = async (game) => {
-  const { status, player1, player2 } = game;
-  console.log(status, player1, player2);
+  const { status, player1 } = game;
+  // console.log(status, player1, player2);
   if (!status) {
     return;
   }
@@ -128,6 +129,7 @@ const statClick = async (id, stat) => {
     state.turn = !turn;
   }
   await state.save();
+  return winner;
 };
 
 module.exports = {

@@ -1,9 +1,11 @@
 import React from "react";
 import "./header.css";
 
-function Header() {
+function Header({ children }) {
   return (
-    <h2 id="heading">Balls of War</h2>
+    <header>
+      <h1 id="heading">{(children === "tie") ? children : (`${children} WINS`)}</h1>
+    </header>
   );
 }
 

@@ -21,41 +21,18 @@
 }
 
 .player1Deck{
-  top: 55%;
-  left: 2%;
+  bottom: 10%;
+  left: 8%;
 }
 
 .player2Deck{
-  top: 8%;
-  right: 2%;
+  bottom: 10%;
+  right: 8%;
 }
 
 .card-img-top{
   height: 200px;
   width: 100px;
-}
-
-/* Hand Cards */
-.player1Card, .player2Card{
-  position: absolute !important;
-  /* left:45%; */
-  /* height: 500px; */
-}
-
-.player1Card{
-  left: 25%;
-  top: 15%;
-  /* margin-top: 10px; */
-}
-
-.player2Card{
-  right: 25%;
-  top: 15%;
-  /* margin-bottom: 10px; */
-}
-
-body {
-  margin: 0;
 }
 
 /* Team Colors */

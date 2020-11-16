@@ -46,7 +46,7 @@ router.put("/:id/:method", isAuthenticated, async (req, res) => {
   const { id, method } = req.params;
   const state = await getGame(id);
   checkGame(state);
-
+  let result = null;
   switch (method) {
   case "deckClick":
     await setHand(id);
@@ -55,14 +55,14 @@ router.put("/:id/:method", isAuthenticated, async (req, res) => {
     await setOppHand(id);
     break;
   case "statClick":
-    await statClick(id, req.body.stat);
+    result = await statClick(id, req.body.stat);
     break;
   default:
     break;
   }
 
   const game = await getGame(id);
-  res.json(game);
+  res.json({ game, winner: result });
 });
 
 module.exports = router;

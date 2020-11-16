@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const db = require("../models");
 const Game = require("../models/game.js");
 
@@ -128,6 +129,7 @@ const statClick = async (id, stat) => {
     state.turn = !turn;
   }
   await state.save();
+  return winner;
 };
 
 module.exports = {

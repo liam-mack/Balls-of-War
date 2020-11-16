@@ -48,8 +48,7 @@ function Play() {
   return (
     <>
       {game && (
-        <>
-          <Scoreboard gameState={game} />
+        <div>
           {game.player1.grave.length > 0 && <Graveyard className="player1" />}
           {game.player2.grave.length > 0 && <Graveyard className="player2" />}
 
@@ -70,8 +69,9 @@ function Play() {
                 {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
               </>
             )}
-        </>
+        </div>
       )}
+      {game && <Scoreboard gameState={game} />}
     </>
   );
 }

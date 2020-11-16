@@ -37,7 +37,7 @@ function SignUp() {
   };
 
   return (
-    <>
+    <div className="home">
       <form id="loginForm">
         <h1 id="sTitle">SignUp!</h1>
         <div>
@@ -65,7 +65,7 @@ function SignUp() {
 
         <h5>{alert}</h5>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
@@ -30,7 +31,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="home">
       <form id="loginForm">
         <h1 id="lTitle">L<i id="lImage" className="fas fa-basketball-ball" />GIN</h1>
         <div>
@@ -72,7 +73,7 @@ function Login() {
         </div>
 
       </form>
-    </>
+    </div>
   );
 }
 

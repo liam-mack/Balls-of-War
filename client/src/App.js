@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import routes from "./config/routes";
 import { AuthProvider } from "./context";
 import AppRoutes from "./components/AppRoutes";
@@ -11,7 +11,7 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           {routes.map((route) => (
             <AppRoutes

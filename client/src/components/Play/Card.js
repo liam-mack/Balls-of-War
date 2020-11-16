@@ -13,7 +13,7 @@ function Card ({ name, position, jersey, height, weight, points, fieldgoal, rebo
   return (
     <div className={`${player}Card ${team}CardHome`} >
       <h4 className={`${player}Card__name`}>{ name } <div className={`playertip ${team}tip`}>{`#${jersey} ${team}, ${position}`}</div></h4>
-      <img className={`${player}Card__img`} src={images[photoUrl]} alt="playerImage" draggable="false" />
+      <img className={`${player}Card__img`} src={images[photoUrl]} alt="player image" draggable="false" />
       {/* <img className={`${player}Card__img`} src={process.env.PUBLIC_URL + "/images/Rockets/JamesHarden.png"} alt="playerImage" draggable="false" /> */}
 
       <div onClick={onClick && ((e) => onClick(e))}>
@@ -29,7 +29,8 @@ function Card ({ name, position, jersey, height, weight, points, fieldgoal, rebo
       <h4 id="fieldgoal" className={`${player}Card__stat ${player}Card__${team}2`}>FG%: {fieldgoal}</h4>
       <div id="tooltip">40%: Poor | 50%: Good</div>
 
-      <h4 id="rebounds" className={`${player}Card__stat ${player}Card__${team}1`}>Rebounds: {rebounds}</h4><div id="tooltip">3: Poor | 7: Good</div>
+      <h4 id="rebounds" className={`${player}Card__stat ${player}Card__${team}1`}>Rebounds: {rebounds}</h4>
+      <div id="tooltip">3: Poor | 7: Good</div>
 
       <h4 id="assists" className={`${player}Card__stat ${player}Card__${team}2`}>Assists: {assists}</h4>
       <div id="tooltip">3 : Poor | 7: Good</div>

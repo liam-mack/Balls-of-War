@@ -3,7 +3,9 @@ import "./header.css";
 
 function Header() {
   return (
-    <h2 id="heading">Balls of War</h2>
+    <header>
+      <h1 id="heading">Balls of War</h1>
+    </header>
   );
 }
 

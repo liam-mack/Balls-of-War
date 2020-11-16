@@ -1,0 +1,41 @@
+@font-face{
+font-family: "digital-clock-font";
+src: url("../../../digital-7mono.ttf");
+}
+
+.scoreboard{
+    position: absolute;
+    top: 0;
+    text-align: center;
+    height: 100px;
+    // background-color: white;
+
+    &__logo{
+        max-width: 100px;
+        max-height: 100px;
+        padding: 0 2rem 0 2rem;
+    }
+
+    &__stats{
+        margin: 0 auto;
+        padding: 0 0 2rem 0;
+        background-color: black;
+        color: white;
+        border-radius: 25px;
+        width: 70%;
+        font-family: digital-clock-font;
+        font-size: 30px
+    }
+
+
+}
+
+
+#possession {
+    max-width: 50px;
+}
+
+footer {
+    width: 100%;
+    // padding: 0;
+}

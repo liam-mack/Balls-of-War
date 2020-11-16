@@ -1,0 +1,23 @@
+.player1Grave, .player2Grave{
+    /* background-color: #ffebcd; */
+    background-image: url("../../../images/placeholder.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    width: 150px;
+    height: 270px;
+    z-index: 1;
+    position: absolute;
+    border-radius: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.player1Grave{
+    bottom: 1%;
+    left: 2%
+}
+.player2Grave{
+    bottom: 1%;
+    right: 2%;
+}

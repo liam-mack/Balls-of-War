@@ -20,13 +20,16 @@ const getDeck = async (team) => {
 const getGame = async (id) => Game.findById(id);
 
 const checkGame = async (game) => {
-  const { status, player1 } = game;
-  // console.log(status, player1, player2);
+  const { status, player1, player2 } = game;
+  console.log(status, player1, player2);
+  // console.log(player2.deck);
   if (!status) {
     return;
   }
-  if (player1 === 0) {
-    console.log("needs work");
+  if (player1.deck === 0 && player1.grave > 0) {
+    player1.deck.push(player1.grave);
+  } else if (player1.deck === 0 && player1.grave === 0) {
+    console.log("Is this the end?");
   }
 };
 
@@ -65,6 +68,7 @@ const setOppHand = async (id) => {
 };
 
 const decideWinner = (turn, result) => {
+  // checkGame();
   console.log(turn, result);
   if (turn) {
     if (result > 0) {
@@ -84,7 +88,7 @@ const decideWinner = (turn, result) => {
 
 const heightToNumber = (stat) => {
   const feet = stat[0];
-  const inches = stat.slice(2);
+  const inches = parseInt(stat.slice(2), 10);
   const height = feet * 12 + inches;
   return height;
 };

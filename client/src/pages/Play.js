@@ -21,7 +21,6 @@ function Play() {
 
   async function deckClick(e) {
     e.preventDefault();
-    console.log(e.target);
     const res = await API.playGame(game._id, "deckClick");
     if (!res) {
       history.push("/");
@@ -29,17 +28,21 @@ function Play() {
     setGame(res.data);
   }
 
-  async function statClick({ id }) {
-    console.log(id);
-    // const check = await API.playGame(game._id, "oppHand");
-    // if (!check) {
-    //   history.push("/");
-    // }
-    // setGame(check.data);
-    // setTimeout(async () => {
-    //   const res = await API.playGame(game._id, "statClick", id);
-    //   setGame(res.data);
-    // }, 3000);
+  async function statClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.target.className += " active";
+    e.currentTarget.className = "disableCard";
+
+    const check = await API.playGame(game._id, "oppHand");
+    if (!check) {
+      history.push("/");
+    }
+    setGame(check.data);
+    setTimeout(async () => {
+      const res = await API.playGame(game._id, "statClick", e.target.id);
+      setGame(res.data);
+    }, 3000);
   }
 
   return (
@@ -53,7 +56,7 @@ function Play() {
           {game.turn
             ? (
               <>
-                <Deck {...(game.player1.hand.length === 0 && deckClick)} id="player1" className={`active player1Deck ${game.player1.team}`} />
+                <Deck deckClick={(game.player1.hand.length === 0) ? deckClick : undefined} id="player1" className={`active player1Deck ${game.player1.team}`} />
                 <Deck id="player2" className={`player2Deck ${game.player2.team}`} />
                 {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
                 {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
@@ -62,9 +65,9 @@ function Play() {
             : (
               <>
                 <Deck id="player1" className={`player1Deck ${game.player1.team}`} />
-                <Deck {...(game.player2.hand.length === 0 && deckClick)} id="player2" className={`active player2Deck ${game.player2.team}`} />
-                {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                <Deck deckClick={(game.player2.hand.length === 0) ? deckClick : undefined} id="player2" className={`active player2Deck ${game.player2.team}`} />
                 {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
               </>
             )}
         </>

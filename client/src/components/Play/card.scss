@@ -13,6 +13,10 @@ $rockets-sec: #C4CED4;
     display: none;
 }
 
+.disableCard {
+    pointer-events: none;
+}
+
 // .playerCard1 {
 //     border: 5px double black;
   
@@ -39,7 +43,6 @@ $rockets-sec: #C4CED4;
 }
 
 .player1Card {
-
     border-radius: 25px;
     // min-width: 25%;
     min-width: 125px;
@@ -101,6 +104,7 @@ $rockets-sec: #C4CED4;
         padding: 0.5rem;
         max-width: 80%;
         margin: auto !important;
+        border-radius: 25px;
     }
     &__Rockets1 {
         background-color: $rockets-sec;
@@ -125,6 +129,7 @@ $rockets-sec: #C4CED4;
     }
 
 }
+
 .player2Card {
     border-radius: 25px;
     // min-width: 25%;
@@ -187,6 +192,7 @@ $rockets-sec: #C4CED4;
         padding: 0.5rem;
         max-width: 80%;
         margin: auto !important;
+        border-radius: 25px;
     }
     &__Rockets2 {
         background-color: $rockets-sec;

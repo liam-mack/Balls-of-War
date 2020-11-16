@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import API from "../utils/API";
-import Deck from "../components/Play/Deck";
-import Card from "../components/Play/Card";
-import Graveyard from "../components/Play/Graveyard";
-import Scoreboard from "../components/Play/Scoreboard";
-import Header from "../components/Header";
+import Deck from "../components/Play/Deck/Deck";
+import Card from "../components/Play/Card/Card";
+import Graveyard from "../components/Play/Graveyard/Graveyard";
+import Scoreboard from "../components/Play/Scoreboard/Scoreboard";
+import Header from "../components/Play/Header/Header";
 
 function Play() {
   const session = useParams();
@@ -78,7 +78,7 @@ function Play() {
               )}
           </>
         )}
-        <Header>{alert}</Header>
+        {alert && <Header>{alert}</Header> }
       </div>
     </>
   );

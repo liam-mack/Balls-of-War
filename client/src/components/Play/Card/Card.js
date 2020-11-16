@@ -3,7 +3,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import "./card.scss";
-import images from "../../../images/Card/Images";
 
 function Card ({ stat, name, position, jersey, height, weight, points, fieldgoal, rebounds, assists, personalfouls, turnovers, onClick, team, player }) {
   const [active, setActive] = useState();
@@ -21,9 +20,9 @@ function Card ({ stat, name, position, jersey, height, weight, points, fieldgoal
     {/* <div className={`${player}Card` (player === "player1") ? `${team}CardHome` : `${team}CardAway`} > */}
 
       <h4 className={`${player}Card__name`}>{name} <div className={`playertip ${team}tip`}>{`#${jersey} ${team}, ${position}`}</div></h4>
-      <img className={`${player}Card__img`} src={images[photoUrl]} alt="player image" draggable="false" />
-      {/* <img className={`${player}Card__img`} src={process.env.PUBLIC_URL + "/images/Rockets/JamesHarden.png"} alt="playerImage" draggable="false" /> */}
-
+      {/* <img className={`${player}Card__img`} src={images[photoUrl]} alt="player image" draggable="false" /> */}
+      <img className={`${player}Card__img`} src={`${process.env.PUBLIC_URL}/images/${team}/${photoUrl}.png`} alt="playerImage" draggable="false" />
+      
       <div onClick={onClick && ((e) => onClick(e))}>
       <h4 data-stat="height" className={`${player}Card__stat ${player}Card__${team}1 ${(active==="height") ? "active" : ""}`}>Height: {height}</h4>
       <div className="tooltip">6': Poor | 7': Good</div>

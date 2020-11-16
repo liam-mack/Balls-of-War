@@ -10,6 +10,7 @@ function Play() {
   const session = useParams();
   const history = useHistory();
   const [game, setGame] = useState();
+  const [activeStat, setActiveStat] = useState(null);
 
   useEffect(async () => {
     const res = await API.getGame(session);
@@ -31,17 +32,19 @@ function Play() {
   async function statClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    e.target.className += " active";
+    // e.target.className += " active";
     e.currentTarget.className = "disableCard";
 
     const check = await API.playGame(game._id, "oppHand");
     if (!check) {
       history.push("/");
     }
+    setActiveStat(e.target.id);
     setGame(check.data);
     setTimeout(async () => {
       const res = await API.playGame(game._id, "statClick", e.target.id);
       setGame(res.data);
+      setActiveStat(null);
     }, 3000);
   }
 
@@ -59,16 +62,16 @@ function Play() {
                 <>
                   <Deck deckClick={(game.player1.hand.length === 0) ? deckClick : undefined} id="player1" className={`active player1Deck ${game.player1.team}`} />
                   <Deck id="player2" className={`player2Deck ${game.player2.team}`} />
-                  {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
-                  {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                  {(game.player1.hand.length > 0 && <Card onClick={statClick} stat={activeStat} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                  {(game.player2.hand.length > 0 && <Card player="player2" stat={activeStat} team={game.player2.team} {...game.player2.hand[0]} />)}
                 </>
               )
               : (
                 <>
                   <Deck id="player1" className={`player1Deck ${game.player1.team}`} />
                   <Deck deckClick={(game.player2.hand.length === 0) ? deckClick : undefined} id="player2" className={`active player2Deck ${game.player2.team}`} />
-                  {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
-                  {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                  {(game.player1.hand.length > 0 && <Card player="player1" stat={activeStat} team={game.player1.team} {...game.player1.hand[0]} />)}
+                  {(game.player2.hand.length > 0 && <Card onClick={statClick} stat={activeStat} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
                 </>
               )}
           </>

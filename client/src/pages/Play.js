@@ -47,31 +47,33 @@ function Play() {
 
   return (
     <>
-      {game && (
-        <div>
-          {game.player1.grave.length > 0 && <Graveyard className="player1" />}
-          {game.player2.grave.length > 0 && <Graveyard className="player2" />}
-
-          {game.turn
-            ? (
-              <>
-                <Deck deckClick={(game.player1.hand.length === 0) ? deckClick : undefined} id="player1" className={`active player1Deck ${game.player1.team}`} />
-                <Deck id="player2" className={`player2Deck ${game.player2.team}`} />
-                {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
-                {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
-              </>
-            )
-            : (
-              <>
-                <Deck id="player1" className={`player1Deck ${game.player1.team}`} />
-                <Deck deckClick={(game.player2.hand.length === 0) ? deckClick : undefined} id="player2" className={`active player2Deck ${game.player2.team}`} />
-                {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
-                {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
-              </>
-            )}
-        </div>
-      )}
       {game && <Scoreboard gameState={game} />}
+      <div className="home">
+        {game && (
+          <>
+            {game.player1.grave.length > 0 && <Graveyard className="player1" />}
+            {game.player2.grave.length > 0 && <Graveyard className="player2" />}
+
+            {game.turn
+              ? (
+                <>
+                  <Deck deckClick={(game.player1.hand.length === 0) ? deckClick : undefined} id="player1" className={`active player1Deck ${game.player1.team}`} />
+                  <Deck id="player2" className={`player2Deck ${game.player2.team}`} />
+                  {(game.player1.hand.length > 0 && <Card onClick={statClick} player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                  {(game.player2.hand.length > 0 && <Card player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                </>
+              )
+              : (
+                <>
+                  <Deck id="player1" className={`player1Deck ${game.player1.team}`} />
+                  <Deck deckClick={(game.player2.hand.length === 0) ? deckClick : undefined} id="player2" className={`active player2Deck ${game.player2.team}`} />
+                  {(game.player1.hand.length > 0 && <Card player="player1" team={game.player1.team} {...game.player1.hand[0]} />)}
+                  {(game.player2.hand.length > 0 && <Card onClick={statClick} player="player2" team={game.player2.team} {...game.player2.hand[0]} />)}
+                </>
+              )}
+          </>
+        )}
+      </div>
     </>
   );
 }

@@ -21,13 +21,13 @@
 }
 
 .player1Deck{
-  top: 55%;
-  left: 2%;
+  bottom: 10%;
+  left: 8%;
 }
 
 .player2Deck{
-  top: 8%;
-  right: 2%;
+  bottom: 10%;
+  right: 8%;
 }
 
 .card-img-top{

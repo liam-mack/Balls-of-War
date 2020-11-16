@@ -7,7 +7,22 @@ $raptors-sec: #CE1141;
 $rockets-pri: #CE1141;
 $rockets-sec: #C4CED4;
 
-#tooltip {
+/* Hand Cards */
+.player1Card, .player2Card{
+    position: absolute !important;
+  }
+  
+  .player1Card{
+    left: 32%;
+    top: 25%;
+  }
+  
+  .player2Card{
+    right: 32%;
+    top: 25%;
+  }
+  
+.tooltip {
     display: none;
 }
 
@@ -117,7 +132,7 @@ $rockets-sec: #C4CED4;
         cursor: pointer;
     }
 
-    &__stat:hover + #tooltip {
+    &__stat:hover .tooltip {
         display: block;
     }
 
@@ -129,7 +144,6 @@ $rockets-sec: #C4CED4;
 
 .player2Card {
     border-radius: 25px;
-    // min-width: 25%;
     min-width: 125px;
     max-width: 25%;
     text-align: center;
@@ -206,7 +220,7 @@ $rockets-sec: #C4CED4;
         cursor: pointer;
     }
 
-    &__stat:hover + #tooltip {
+    &__stat:hover .tooltip {
         display: block !important;
     }
 

@@ -5,12 +5,14 @@ import Deck from "../components/Play/Deck";
 import Card from "../components/Play/Card";
 import Graveyard from "../components/Play/Graveyard";
 import Scoreboard from "../components/Play/Scoreboard";
+import Header from "../components/Header";
 
 function Play() {
   const session = useParams();
   const history = useHistory();
   const [game, setGame] = useState();
   const [activeStat, setActiveStat] = useState(null);
+  const [alert, setAlert] = useState();
 
   useEffect(async () => {
     const res = await API.getGame(session);
@@ -26,24 +28,24 @@ function Play() {
     if (!res) {
       history.push("/");
     }
-    setGame(res.data);
+    setGame(res.data.game);
   }
 
   async function statClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    // e.target.className += " active";
     e.currentTarget.className = "disableCard";
 
     const check = await API.playGame(game._id, "oppHand");
     if (!check) {
       history.push("/");
     }
-    setActiveStat(e.target.id);
-    setGame(check.data);
+    setActiveStat(e.target.dataset.stat);
+    setGame(check.data.game);
     setTimeout(async () => {
-      const res = await API.playGame(game._id, "statClick", e.target.id);
-      setGame(res.data);
+      const res = await API.playGame(game._id, "statClick", e.target.dataset.stat);
+      setGame(res.data.game);
+      setAlert(res.data.winner);
       setActiveStat(null);
     }, 3000);
   }
@@ -76,6 +78,7 @@ function Play() {
               )}
           </>
         )}
+        <Header>{alert}</Header>
       </div>
     </>
   );

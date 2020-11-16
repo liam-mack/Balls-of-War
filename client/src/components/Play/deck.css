@@ -35,21 +35,6 @@
   width: 100px;
 }
 
-/* Hand Cards */
-.player1Card, .player2Card{
-  position: absolute !important;
-}
-
-.player1Card{
-  left: 32%;
-  top: 25%;
-}
-
-.player2Card{
-  right: 32%;
-  top: 25%;
-}
-
 /* Team Colors */
 .Lakers {
   /* background: linear-gradient(gold, purple); */

@@ -7,21 +7,42 @@ import { loginUser, useAuthDispatch } from "../context";
 import "./home.css";
 
 function Login() {
+  const [alert, setAlert] = useState();
   const [passwordShown, setPasswordShown] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userInput, setUserInput] = useState({
+    email: "",
+    password: "",
+  });
   const dispatch = useAuthDispatch();
   const history = useHistory();
 
+  const handleChange = (event) => {
+    setUserInput({
+      ...userInput,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
+    const { email, password } = userInput;
+    setAlert("");
+
+    if (!email || !password) {
+      setAlert("Please fill all fields!");
+      return;
+    }
+
     try {
-      const res = await loginUser(dispatch, { email, password });
+      const res = await loginUser(dispatch, userInput);
       if (!res.email) {
+        setAlert("Login failed. Please try again!");
         return;
       }
+      setAlert("Login successful!");
       history.push("/selection");
     } catch (error) {
+      setAlert("Login failed. Please try again!");
       console.log(error);
     }
   };
@@ -40,8 +61,7 @@ function Login() {
             <input
               type="text"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleChange}
               placeholder="Email"
               required
             />
@@ -53,14 +73,14 @@ function Login() {
             <input
               type={passwordShown ? "text" : "password"}
               name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleChange}
               placeholder="Password"
               required
             />
             <i className="fas fa-eye" onClick={toggleVis} />
           </label>
         </div>
+
         <div className="formBtn">
           <button name="login" id="loginBtn" type="submit" onClick={handleLogin}>
             <i className="fas fa-door-open" /> Log In
@@ -72,6 +92,7 @@ function Login() {
           </Link>
         </div>
 
+        {alert && <h5>{alert}</h5>}
       </form>
     </div>
   );

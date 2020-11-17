@@ -63,7 +63,7 @@ function SignUp() {
           </button>
         </div>
 
-        <h5>{alert}</h5>
+        {alert && <h5>{alert}</h5>}
       </form>
     </div>
   );

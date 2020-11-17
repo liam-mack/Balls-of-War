@@ -19,34 +19,83 @@ const getDeck = async (team) => {
 
 const getGame = async (id) => Game.findById(id);
 
-const checkGame = async (game) => {
-  const { status, player1, player2 } = game;
-  console.log(status, player1, player2);
-  // console.log(player2.deck);
-  if (!status) {
-    return;
-  }
-  if (player1.deck === 0 && player1.grave > 0) {
-    player1.deck.push(player1.grave);
+// End game still needs work
+const checkHand = (game) => {
+  const { player1, player2 } = game;
+
+  if (player1.deck.length === 0 && player1.grave.length !== 0) {
+    player1.deck.push(...(player1.grave));
+    player1.grave = [];
   } else if (player1.deck === 0 && player1.grave === 0) {
-    console.log("Is this the end?");
+    let { status } = game;
+    status = false;
+    return (status);
+  }
+  if (player2.deck.length === 0 && player2.grave.length !== 0) {
+    player2.deck.push(...(player2.grave));
+    player2.grave = [];
+  } else if (player2.deck.length === 0 && player2.grave.length === 0) {
+    let { status } = game;
+    status = false;
+    return (status);
   }
 };
 
+const checkGame = async (game) => {
+  const { status } = game;
+  if (!status) {
+    return;
+  }
+  if (status) {
+    checkHand(game);
+  }
+};
+
+// Moved up so setHand could access decideWinner on ties
+const decideWinner = (turn, result) => {
+  console.log(turn, result);
+  if (turn) {
+    if (result > 0) {
+      return "player1";
+    } if (result < 0) {
+      return "player2";
+    }
+    return "tie";
+  }
+  if (result > 0) {
+    return "player2";
+  } if (result < 0) {
+    return "player1";
+  }
+  return "tie";
+};
+
+// Clearly need some help here
 const setHand = async (id) => {
   const state = await getGame(id);
   const { player1, player2, turn } = state;
   if (player1.hand.length > 0 || player2.hand.length > 0) {
-    return;
+    if (turn) {
+      player1.hand.unshift(player1.deck[0]);
+      player1.deck.shift();
+      player2.hand.unshift(player2.deck[0]);
+      player2.deck.shift();
+    } else {
+      player2.hand.unshift(player2.deck[0]);
+      player2.deck.shift();
+      player1.hand.unshift(player1.deck[0]);
+      player1.deck.shift();
+    }
+  } if (player1.hand.length === 0 && player2.hand.length === 0) {
+    if (turn) {
+      player1.hand.unshift(player1.deck[0]);
+      player1.deck.shift();
+    } else {
+      player2.hand.unshift(player2.deck[0]);
+      player2.deck.shift();
+    }
   }
 
-  if (turn) {
-    player1.hand.unshift(player1.deck[0]);
-    player1.deck.shift();
-  } else {
-    player2.hand.unshift(player2.deck[0]);
-    player2.deck.shift();
-  }
   await state.save();
 };
 
@@ -65,25 +114,6 @@ const setOppHand = async (id) => {
     player1.deck.shift();
   }
   await state.save();
-};
-
-const decideWinner = (turn, result) => {
-  // checkGame();
-  console.log(turn, result);
-  if (turn) {
-    if (result > 0) {
-      return "player1";
-    } if (result < 0) {
-      return "player2";
-    }
-    return "tie";
-  }
-  if (result > 0) {
-    return "player2";
-  } if (result < 0) {
-    return "player1";
-  }
-  return "tie";
 };
 
 const heightToNumber = (stat) => {
@@ -112,6 +142,7 @@ const statClick = async (id, stat) => {
 
   if (winner === "tie") {
     await setHand(id);
+    // checkGame(state);
     return;
   }
 
@@ -132,6 +163,7 @@ const statClick = async (id, stat) => {
   if ((turn && winner === "player2") || (!turn && winner === "player1")) {
     state.turn = !turn;
   }
+  checkGame(state);
   await state.save();
   return winner;
 };

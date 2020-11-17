@@ -21,7 +21,7 @@ function Card ({ stat, name, position, jersey, height, weight, points, fieldgoal
 
       <h4 className={`${player}Card__name`}>{name} <div className={`playertip ${team}tip`}>{`#${jersey} ${team}, ${position}`}</div></h4>
       {/* <img className={`${player}Card__img`} src={images[photoUrl]} alt="player image" draggable="false" /> */}
-      <img className={`${player}Card__img`} src={`${process.env.PUBLIC_URL}/images/${team}/${photoUrl}.png`} alt="playerImage" draggable="false" />
+      <img className={`${player}Card__img`} src={`${process.env.PUBLIC_URL}/images/Basketball/${photoUrl}.png`} alt="playerImage" draggable="false" />
       
       <div onClick={onClick && ((e) => onClick(e))}>
       <h4 data-stat="height" className={`${player}Card__stat ${player}Card__${team}1 ${(active==="height") ? "active" : ""}`}>Height: {height}</h4>

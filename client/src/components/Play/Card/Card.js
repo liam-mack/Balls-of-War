@@ -5,11 +5,12 @@ import React, { useEffect, useState } from "react";
 import "./card.scss";
 
 function Card ({ stat, name, position, jersey, height, weight, points, fieldgoal, rebounds, assists, personalfouls, turnovers, onClick, team, player }) {
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(null);
 
   useEffect(async () => {
     stat && setActive(stat)
   },[stat])
+
 
   let photoUrl = (name.replace(/\s+/g, ''));
   photoUrl = (photoUrl.replace(/\./g,''));

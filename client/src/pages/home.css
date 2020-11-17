@@ -12,7 +12,7 @@
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 } */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -110,5 +110,9 @@ input[type=password]{
 }
 .fa-eye:hover{
     color: #fc8f00;
+    cursor: pointer;
+}
+
+button:hover{
     cursor: pointer;
 }

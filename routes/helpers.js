@@ -70,30 +70,34 @@ const decideWinner = (turn, result) => {
   return "tie";
 };
 
-// Clearly need some help here
+const warTie = async (id) => {
+  const state = await getGame(id);
+  const { player1, player2, turn } = state;
+  if (turn) {
+    player1.hand.unshift(player1.deck[0]);
+    player1.deck.shift();
+    player2.hand.unshift(player2.deck[0]);
+    player2.deck.shift();
+    // player2.hand.unshift({ tie: "Tying" });
+  } else {
+    player2.hand.unshift(player2.deck[0]);
+    player2.deck.shift();
+    player1.hand.unshift(player1.deck[0]);
+    player1.deck.shift();
+    // player1.hand.unshift({ tie: "Tying" });
+  }
+  await state.save();
+};
+
 const setHand = async (id) => {
   const state = await getGame(id);
   const { player1, player2, turn } = state;
-  if (player1.hand.length > 0 || player2.hand.length > 0) {
-    if (turn) {
-      player1.hand.unshift(player1.deck[0]);
-      player1.deck.shift();
-      player2.hand.unshift(player2.deck[0]);
-      player2.deck.shift();
-    } else {
-      player2.hand.unshift(player2.deck[0]);
-      player2.deck.shift();
-      player1.hand.unshift(player1.deck[0]);
-      player1.deck.shift();
-    }
-  } if (player1.hand.length === 0 && player2.hand.length === 0) {
-    if (turn) {
-      player1.hand.unshift(player1.deck[0]);
-      player1.deck.shift();
-    } else {
-      player2.hand.unshift(player2.deck[0]);
-      player2.deck.shift();
-    }
+  if (turn) {
+    player1.hand.unshift(player1.deck[0]);
+    player1.deck.shift();
+  } else {
+    player2.hand.unshift(player2.deck[0]);
+    player2.deck.shift();
   }
 
   await state.save();
@@ -141,8 +145,7 @@ const statClick = async (id, stat) => {
     : winner = decideWinner(turn, statTwo - statOne);
 
   if (winner === "tie") {
-    await setHand(id);
-    // checkGame(state);
+    await warTie(id);
     return;
   }
 

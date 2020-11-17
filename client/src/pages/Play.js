@@ -34,7 +34,7 @@ function Play() {
   async function statClick(e) {
     e.preventDefault();
     e.stopPropagation();
-    e.currentTarget.className = "disableCard";
+    // e.currentTarget.className = "disableCard";
 
     const check = await API.playGame(game._id, "oppHand");
     if (!check) {
@@ -44,9 +44,9 @@ function Play() {
     setGame(check.data.game);
     setTimeout(async () => {
       const res = await API.playGame(game._id, "statClick", e.target.dataset.stat);
+      setActiveStat(null);
       setGame(res.data.game);
       setAlert(res.data.winner);
-      setActiveStat(null);
     }, 3000);
   }
 

@@ -1,4 +1,4 @@
-# Balls of War :basketball:
+# Balls :basketball:f War 
 [![GitHub License](https://img.shields.io/github/license/liam-mack/Balls-of-War)](https://opensource.org/licenses/MIT)
 
 ## Description
@@ -16,28 +16,27 @@ A MERN stack two player online card game with a NBA twist. Using Create-React-Ap
 Due to the ongoing pandemic, the NBA season have been interrupted and social gatherings restricted which meant no basketball for months. Seeing as current basketball games on the market are expensive and also take time to develop, we wanted to create a simple, but fun interactive basketball related game that could be played with a friend. The inspiration for the game came from the childhood favourite card game WAR.
 
 ### User Stories
-> AS an avid basketball fan
+>AS an avid basketball fan
 
 
-> I WANT a simple sports themed online card game
+>I WANT a simple sports themed online card game
 
 
-> SO THAT I can enjoy basketball and maintain social distancing during quarantine.
+>SO THAT I can enjoy basketball and maintain social distancing during quarantine.
 
 ### Acceptance Criteria
-GIVEN a choice of decks
-WHEN I select a deck from the database
-THEN I am matched with an opponent
+>GIVEN a choice of decks WHEN I select a deck from the database THEN I am matched with an opponent
 
-GIVEN it is my turn
+
+>GIVEN it is my turn
 WHEN I select the top card
 THEN I can choose a stat and play it
 
-GIVEN cards are in play
+>GIVEN cards are in play
 WHEN the turn is won
 THEN the winner collects those cards
 
-GIVEN a player loses their turn
+>GIVEN a player loses their turn
 WHEN they have no more cards to play
 THEN the winner is declared
 

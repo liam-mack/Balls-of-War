@@ -2,7 +2,7 @@
 [![GitHub License](https://img.shields.io/github/license/liam-mack/Balls-of-War)](https://opensource.org/licenses/MIT)
 
 ## Description
-A MERN stack two player online card game with a NBA twist. Using Create-React-App, our app features four teams (Lakers, Rockets, Heat and Raptors) with 18 players each from the 2020 season. Users have the option of choosing one of the eight stats(height, weight, field goal percentage, assist, rebounds, turnovers and personal fouls) to pit against the competition. The website is equipped with user functionality to create accounts, remember individual games and record match histories. Future deployment in the works are as follows:
+A MERN stack two player online card game with a NBA twist. Using Create-React-App, our app features four teams (Lakers, Rockets, Heat and Raptors) with 18 players each from the 2020 season. Users have the option of choosing one of the eight stats(height, weight, field goal percentage, assist, rebounds, turnovers and personal fouls) to pit against the competition. The website is equipped with user functionality to create accounts, remember individual games and record match histories. Game state modifications occur server-side and saved in MongoDB. Future deployment in the works are as follows:
 * Incorporating websockets
 * Create your own player and increase your stats out of game with fitbit
 * Add all teams and other stats
